@@ -61,26 +61,22 @@ Note that because m = 0, there are no elements in nums1. The 0 is only there to 
 
 **Language:** C++  
 **Runtime:** 0 ms (beats 100.00%)  
-**Memory:** 12.3 MB (beats 42.37%)  
-**Submitted:** 2026-07-10T14:52:26.483Z  
+**Memory:** 12.4 MB (beats 9.52%)  
+**Submitted:** 2026-07-10T15:00:23.019Z  
 
 ```cpp
 class Solution {
 public:
     void merge(vector<int>& n1, int m, vector<int>& n2, int n) {
-        int mn = m + n;
-        for(int i = m - 1; i >= 0; i--) n1[i + n] = n1[i];
-        for(int i = 0; i < n; i++) n1[i] = 0;
-        int i = n;
-        int j = 0;
-        int k = 0;
-        while(i < mn && j < n)
+        int i = m - 1;
+        int j = n - 1;
+        int k = m + n - 1;
+        while(i >= 0 && j >= 0)
         {
-            if(n1[i] < n2[j]) n1[k++] = n1[i++];
-            else n1[k++] = n2[j++];
+            if(n1[i] > n2[j]) n1[k--] = n1[i--];
+            else n1[k--] = n2[j--];
         }
-        while(i < mn) n1[k++] = n1[i++];
-        while(j < n) n1[k++] = n2[j++];
+        while(j >= 0) n1[k--] = n2[j--];
     }
 };
 ```
