@@ -37,23 +37,32 @@ Output: 9
 
 **Language:** C++  
 **Runtime:** 0 ms (beats 100.00%)  
-**Memory:** 26.6 MB (beats 43.17%)  
-**Submitted:** 2026-07-12T11:17:43.571Z  
+**Memory:** 26 MB (beats 78.56%)  
+**Submitted:** 2026-07-12T11:24:09.825Z  
 
 ```cpp
 class Solution {
 public:
-    int trap(vector<int>& hght) {
-        int n = hght.size();
-        vector<int>pfm(n);
-        int m = hght[0];
+    int trap(vector<int>& nums) {
+        int l = 0;
+        int r = nums.size() - 1;
+        int lm = nums[l];
+        int rm = nums[r];
         int ans = 0;
-        pfm[n - 1] = hght[n - 1];
-        for(int i = n - 2; i >= 0; i--) pfm[i] = max(pfm[i + 1],hght[i]);
-        for(int i = 1; i < n; i++)
+        while(l < r)
         {
-            if(m > hght[i] && hght[i] < pfm[i]) ans+=(min(m,pfm[i]) - hght[i]);
-            m = max(m,hght[i]);
+            if(lm < rm)
+            {
+                l++;
+                lm = max(lm,nums[l]);
+                ans+=lm - nums[l];
+            }
+            else
+            {
+                r--;
+                rm = max(rm,nums[r]);
+                ans+=rm - nums[r];
+            }
         }
         return ans;
     }
