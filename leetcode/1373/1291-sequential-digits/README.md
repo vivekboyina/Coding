@@ -35,15 +35,15 @@ Output: [1234,2345,3456,4567,5678,6789,12345]
 ## Solution
 
 **Language:** C++  
-**Runtime:** 0 ms (beats 100.00%)  
-**Memory:** 8.6 MB (beats 8.31%)  
-**Submitted:** 2026-07-13T05:12:18.273Z  
+**Runtime:** 1 ms (beats 7.62%)  
+**Memory:** 8.5 MB (beats 18.24%)  
+**Submitted:** 2026-07-13T05:14:36.054Z  
 
 ```cpp
 class Solution {
 public:
     vector<int> sequentialDigits(int low, int high) {
-        vector<int>val;
+        vector<int>ans;
         string s = "123456789";
         int i = 0;
         int j = 1;
@@ -51,7 +51,7 @@ public:
         long long curr = (s[i] - '0')*10 + (s[j] - '0');
         for(int p = 1; p < 36; p++)
         {
-            val.push_back(curr);
+            if(curr >= low && curr <= high) ans.push_back(curr);
             curr = curr - (s[i] - '0')*pow(10,k);
             i++;
             j++;
@@ -65,9 +65,8 @@ public:
             }
             else curr = curr*10 + (s[j] - '0');
         }
-        val.push_back(123456789);
-        vector<int>ans;
-        for(long long it : val) if(it >= low && it <= high) ans.push_back(it);
+        curr = 123456789;
+        if(curr >= low && curr <= high) ans.push_back(curr);
         return ans;
     }
 };
