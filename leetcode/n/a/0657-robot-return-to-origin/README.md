@@ -42,9 +42,9 @@ Explanation: The robot moves left twice. It ends up two "moves" to the left of t
 ## Solution
 
 **Language:** C++  
-**Runtime:** 0 ms  
-**Memory:** 7.8 MB  
-**Submitted:** 2026-07-13T09:03:39.942Z  
+**Runtime:** 2 ms (beats 52.99%)  
+**Memory:** 10.4 MB (beats 13.18%)  
+**Submitted:** 2026-07-13T09:03:50.291Z  
 
 ```cpp
 class Solution {
