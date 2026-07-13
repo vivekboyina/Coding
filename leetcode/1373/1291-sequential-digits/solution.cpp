@@ -1,7 +1,7 @@
 class Solution {
 public:
     vector<int> sequentialDigits(int low, int high) {
-        vector<int>val;
+        vector<int>ans;
         string s = "123456789";
         int i = 0;
         int j = 1;
@@ -9,7 +9,7 @@ public:
         long long curr = (s[i] - '0')*10 + (s[j] - '0');
         for(int p = 1; p < 36; p++)
         {
-            val.push_back(curr);
+            if(curr >= low && curr <= high) ans.push_back(curr);
             curr = curr - (s[i] - '0')*pow(10,k);
             i++;
             j++;
@@ -23,9 +23,8 @@ public:
             }
             else curr = curr*10 + (s[j] - '0');
         }
-        val.push_back(123456789);
-        vector<int>ans;
-        for(long long it : val) if(it >= low && it <= high) ans.push_back(it);
+        curr = 123456789;
+        if(curr >= low && curr <= high) ans.push_back(curr);
         return ans;
     }
 };
