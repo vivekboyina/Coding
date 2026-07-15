@@ -59,12 +59,12 @@ RRLLRLRL
 
 ## Solution
 
-**Language:** c_cpp  
+**Language:** C++  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-07-15T14:59:20.286Z  
+**Submitted:** 2026-07-15T15:01:45.130Z  
 
-```c_cpp
+```cpp
 #include <bits/stdc++.h>
 using namespace std;
 
