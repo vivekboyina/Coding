@@ -62,7 +62,7 @@ RRLLRLRL
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-07-15T14:57:09.312Z  
+**Submitted:** 2026-07-15T14:57:15.322Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -80,7 +80,7 @@ int main() {
 	    cin >> st;
 	    string s;
 	    cin >> s;
-	    if(st == 0) cout << s[0] == 'L' ? 0 : 1 << endl;
+	    if(st == 0) cout << s[st] == 'L' ? 0 : 1 << endl;
 	    else if(st == n - 1) cout << s[st] == 'R' ? 0 : 1 << endl;
 	    else
 	    {
