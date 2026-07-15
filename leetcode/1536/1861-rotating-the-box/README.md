@@ -67,9 +67,9 @@ Output: [[".","#","#"],
 ## Solution
 
 **Language:** C++  
-**Runtime:** 14 ms (beats 48.23%)  
-**Memory:** 60.9 MB (beats 7.30%)  
-**Submitted:** 2026-07-15T07:08:54.862Z  
+**Runtime:** 23 ms (beats 22.12%)  
+**Memory:** 61 MB (beats 6.37%)  
+**Submitted:** 2026-07-15T07:09:08.457Z  
 
 ```cpp
 class Solution {
@@ -86,7 +86,6 @@ public:
             {
                 if(bg[i][j] == '*')
                 {
-                    // cout << "Entered1 : " << j << endl;
                     k = j - 1;
                     while(lst < k)
                     {
@@ -108,7 +107,6 @@ public:
                 }
                 else if(j == n - 1)
                 {
-                    // cout << "Entered2 : "  << n - 1 << endl;
                     k = j;
                     while(lst < k)
                     {
