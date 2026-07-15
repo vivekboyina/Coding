@@ -31,6 +31,7 @@ int main() {
                         else p[j] = '0';
                     }
                     ans = min(ans,p);
+                    if(s > p) s = p;
                 }
                 if(s[i + k] == '0') z-=1;
                 else o-=1;
