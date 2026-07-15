@@ -75,7 +75,7 @@ It's impossible to even modify the given string since it only contains one $0$. 
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-07-15T16:03:55.080Z  
+**Submitted:** 2026-07-15T16:05:58.156Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -91,33 +91,31 @@ int main() {
         cin >> k;
         string s;
         cin >> s;
-        string ans = s;
-        k = 2*k;
         int z = 0;
         int o = 0;
-        string p = s;
-        for(int i = n - 1; i >= 0; i--)
+        for(char i : s)
         {
-            if(s[i] == '0') z+=1;
+            if(i == '0') z+=1;
             else o+=1;
-            if(z + o == k)
-            {
-                if(z == o)
-                {
-                    p = s;
-                    for(int j = i; j < i + k; j++)
-                    {
-                        if(p[j] == '0') p[j] = '1';
-                        else p[j] = '0';
-                    }
-                    ans = min(ans,p);
-                    if(s > p) s = p;
-                }
-                if(s[i + k] == '0') z-=1;
-                else o-=1;
-            }
         }
-        cout << ans << endl;
+        if(z < k || o < k) cout << s << endl;
+        else
+        {
+            for(int i = n - 1; i >= 0; i--)
+            {
+                if(o > 0)
+                {
+                    o-=1;
+                    s[i] = '1';
+                }
+                else
+                {
+                    z-=1;
+                    s[i] = '0';
+                }
+            }
+            cout << s << endl;
+        }
     }
 }
 ```
