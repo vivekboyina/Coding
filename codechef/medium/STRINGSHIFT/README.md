@@ -55,12 +55,12 @@ aabb
 
 ## Solution
 
-**Language:** C++  
+**Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-07-15T15:18:04.725Z  
+**Submitted:** 2026-07-15T15:17:27.454Z  
 
-```cpp
+```c_cpp
 #include <bits/stdc++.h>
 using namespace std;
 int main() {
