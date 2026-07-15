@@ -75,7 +75,7 @@ It's impossible to even modify the given string since it only contains one $0$. 
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-07-15T16:05:58.156Z  
+**Submitted:** 2026-07-15T16:07:18.436Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -108,11 +108,7 @@ int main() {
                     o-=1;
                     s[i] = '1';
                 }
-                else
-                {
-                    z-=1;
-                    s[i] = '0';
-                }
+                else s[i] = '0';
             }
             cout << s << endl;
         }
