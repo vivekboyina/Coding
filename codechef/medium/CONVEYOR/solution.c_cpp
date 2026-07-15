@@ -25,8 +25,6 @@ int main() {
             if(s[i] == 'L') lr++;
             else rr++;
         }
-        cout << ll << " " << rl << endl;
-        cout << lr << " " << rr << endl;
-        cout << min(abs(ll - rl),abs(lr - rr)) << endl;
+        cout << min(lr,rl) << endl;
 	}
 }
