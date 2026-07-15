@@ -75,7 +75,7 @@ It's impossible to even modify the given string since it only contains one $0$. 
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-07-15T15:52:47.085Z  
+**Submitted:** 2026-07-15T16:03:55.080Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -111,6 +111,7 @@ int main() {
                         else p[j] = '0';
                     }
                     ans = min(ans,p);
+                    if(s > p) s = p;
                 }
                 if(s[i + k] == '0') z-=1;
                 else o-=1;
