@@ -72,12 +72,12 @@ It's impossible to even modify the given string since it only contains one $0$. 
 
 ## Solution
 
-**Language:** C++  
+**Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-07-15T15:47:06.989Z  
+**Submitted:** 2026-07-15T15:47:50.097Z  
 
-```cpp
+```c_cpp
 #include <bits/stdc++.h>
 using namespace std;
 int main() {
@@ -95,18 +95,36 @@ int main() {
         k = 2*k;
         int z = 0;
         int o = 0;
-        for(int i = n - 1; i > n - k; i--)
+        for(int i = n - 1; i >= n - k; i--)
         {
             if(s[i] == '0') z+=1;
             else o+=1;
         }
+        int j;
+        string p;
         for(int i = n - k; i >= 0; i--)
         {
             if(z == o)
             {
-                
+                j = i;
+                p = s;
+                while(j < i + k)
+                {
+                    if(p[j] == '0') p[j] = '1';
+                    else p[j] = '0';
+                }
+                cout << "p : " << p << endl;
+                ans = min(ans,p);
             }
+            else
+            {
+                if(s[i + k] == '0') z-=1;
+                else o-=1;
+            }
+            if(s[i] == '0') z+=1;
+            else o+=1;
         }
+        cout << ans << endl;
     }
 }
 ```
