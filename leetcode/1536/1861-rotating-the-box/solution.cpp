@@ -12,31 +12,31 @@ public:
             {
                 if(bg[i][j] == '*')
                 {
-                    cout << "Entered1 : " << j << endl;
+                    // cout << "Entered1 : " << j << endl;
                     k = j - 1;
                     while(lst < k)
                     {
                         if(bg[i][k] == '.' && bg[i][lst] == '#')
                         {
                             swap(bg[i][k],bg[i][lst]);
-                            lst++;
+                            k--;
                         }
-                        k--;
+                        lst++;
                     }
                     lst = j + 1;
                 }
                 else if(j == n - 1)
                 {
-                    cout << "Entered2 : "  << n - 1 << endl;
+                    // cout << "Entered2 : "  << n - 1 << endl;
                     k = j;
                     while(lst < k)
                     {
                         if(bg[i][k] == '.' && bg[i][lst] == '#')
                         {
                             swap(bg[i][k],bg[i][lst]);
-                            lst++;
+                            k--;
                         }
-                        k--;
+                        lst++;
                     }
                     lst = j;
                 }
