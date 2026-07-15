@@ -12,7 +12,6 @@ public:
             {
                 if(bg[i][j] == '*')
                 {
-                    // cout << "Entered1 : " << j << endl;
                     k = j - 1;
                     while(lst < k)
                     {
@@ -34,7 +33,6 @@ public:
                 }
                 else if(j == n - 1)
                 {
-                    // cout << "Entered2 : "  << n - 1 << endl;
                     k = j;
                     while(lst < k)
                     {
