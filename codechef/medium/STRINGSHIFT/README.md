@@ -55,12 +55,12 @@ aabb
 
 ## Solution
 
-**Language:** C++  
+**Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-07-15T15:22:10.387Z  
+**Submitted:** 2026-07-15T15:32:16.496Z  
 
-```cpp
+```c_cpp
 #include <bits/stdc++.h>
 using namespace std;
 int main() {
@@ -69,23 +69,21 @@ int main() {
 	cin >> t;
 	while(t--)
 	{
-	    int n;
+	    long long n;
 	    cin >> n;
 	    string s;
 	    cin >> s;
 	    string o = s;
 	    string k;
 	    string ans = s;
-	    for(int i = 0; i < s.length(); i++)
+	    int i = 0;
+	    for(i = 0; i < s.length(); i++) if(s[i] == 'z') break;
+	    for(int j = i; j < n; j++)
 	    {
-	        k = s;
-	        if(k[i] == 'z') k[i] = 'a';
-	        else k[i] = k[i] + 1;
-	        ans = min(ans,min(s,k));
-	        if(s > k) s = k;
-	        else s = o;
+	        if(s[j] == 'z') s[j] = 'a';
+	        else break;
 	    }
-	    cout << ans << endl;
+	    cout << s << endl;
 	}
 }
 ```
