@@ -28,11 +28,7 @@ int main() {
                     o-=1;
                     s[i] = '1';
                 }
-                else
-                {
-                    z-=1;
-                    s[i] = '0';
-                }
+                else s[i] = '0';
             }
             cout << s << endl;
         }
