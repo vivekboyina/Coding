@@ -51,7 +51,7 @@ Output
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-07-15T14:36:14.185Z  
+**Submitted:** 2026-07-15T14:37:07.912Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -70,13 +70,11 @@ int main() {
 	    int ans = 0;
 	    for(int i = 1; i < n; i++)
 	    {
-	        if((arr[i - 1] % 2 == 0 && arr[i] % 2 == 0) || (arr[i - 1] % 2 != 0 && arr[i] % 2 != 0))
+	        if(arr[i - 1] % 2 == 0 && arr[i] % 2 == 0)
 	        {
-	            ans+=1;
-	            arr[i]+=1;
+	            
 	        }
 	    }
-	    cout << ans << endl;
 	}
 }
 
