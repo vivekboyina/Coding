@@ -20,8 +20,15 @@ public:
                         {
                             swap(bg[i][k],bg[i][lst]);
                             k--;
+                            lst++;
                         }
-                        lst++;
+                        else if(bg[i][k] == '.' && bg[i][lst] == '.') lst++;
+                        else if(bg[i][k] == '#' && bg[i][lst] == '#') k--;
+                        else
+                        {
+                            lst++;
+                            k--;
+                        }
                     }
                     lst = j + 1;
                 }
@@ -35,8 +42,15 @@ public:
                         {
                             swap(bg[i][k],bg[i][lst]);
                             k--;
+                            lst++;    
                         }
-                        lst++;
+                        else if(bg[i][k] == '.' && bg[i][lst] == '.') lst++;
+                        else if(bg[i][k] == '#' && bg[i][lst] == '#') k--;
+                        else
+                        {
+                            lst++;
+                            k--;
+                        }
                     }
                     lst = j;
                 }
