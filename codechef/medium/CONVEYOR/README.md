@@ -62,7 +62,7 @@ RRLLRLRL
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-07-15T15:01:54.398Z  
+**Submitted:** 2026-07-15T14:57:13.282Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -80,19 +80,24 @@ int main() {
 	    cin >> st;
 	    string s;
 	    cin >> s;
-        int ll = 0,rl = 0;
-        int lr = 0,rr = 0;
-        for(int i = 0; i <= st; i++)
-        {
-            if(s[i] == 'L') ll++;
-            else rl++;
-        }
-        for(int i = st; i < n; i++)
-        {
-            if(s[i] == 'L') lr++;
-            else rr++;
-        }
-        cout << min(lr,rl) << endl;
+	    if(st == 0) cout << s[st] == 'L' ? 0 : 1 << endl;
+	    else if(st == n - 1) cout << s[st] == 'R' ? 0 : 1 << endl;
+	    else
+	    {
+	        int ll = 0,rl = 0;
+	        int lr = 0,rr = 0;
+	        for(int i = 0; i <= st; i++)
+	        {
+	            if(s[i] == 'L') ll++;
+	            else rl++;
+	        }
+	        for(int i = st; i < n; i++)
+	        {
+	            if(s[i] == 'L') lr++;
+	            else rr++;
+	        }
+	        cout << min(abs(ll - rl),abs(lr - rr)) << endl;
+	    }
 	}
 }
 
