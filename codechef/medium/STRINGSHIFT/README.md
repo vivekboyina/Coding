@@ -58,17 +58,24 @@ aabb
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-07-15T15:06:23.476Z  
+**Submitted:** 2026-07-15T15:10:09.859Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
 using namespace std;
-
 int main() {
 	// your code goes here
-
+	int t;
+	cin >> t;
+	while(t--)
+	{
+	    int n;
+	    cin >> n;
+	    string s;
+	    cin >> s;
+	    
+	}
 }
-
 ```
 
 ---
