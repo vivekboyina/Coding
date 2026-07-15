@@ -72,12 +72,12 @@ It's impossible to even modify the given string since it only contains one $0$. 
 
 ## Solution
 
-**Language:** c_cpp  
+**Language:** C++  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-07-15T15:43:09.104Z  
+**Submitted:** 2026-07-15T15:43:19.379Z  
 
-```c_cpp
+```cpp
 #include <bits/stdc++.h>
 using namespace std;
 int main() {
