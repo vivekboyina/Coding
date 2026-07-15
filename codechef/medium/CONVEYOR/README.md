@@ -62,7 +62,7 @@ RRLLRLRL
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-07-15T14:58:59.296Z  
+**Submitted:** 2026-07-15T15:01:54.398Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -92,9 +92,7 @@ int main() {
             if(s[i] == 'L') lr++;
             else rr++;
         }
-        cout << ll << " " << rl << endl;
-        cout << lr << " " << rr << endl;
-        cout << min(abs(ll - rl),abs(lr - rr)) << endl;
+        cout << min(lr,rl) << endl;
 	}
 }
 
