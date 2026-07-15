@@ -13,7 +13,7 @@ int main() {
 	    cin >> st;
 	    string s;
 	    cin >> s;
-	    if(st == 0) cout << s[0] == 'L' ? 0 : 1 << endl;
+	    if(st == 0) cout << s[st] == 'L' ? 0 : 1 << endl;
 	    else if(st == n - 1) cout << s[st] == 'R' ? 0 : 1 << endl;
 	    else
 	    {
