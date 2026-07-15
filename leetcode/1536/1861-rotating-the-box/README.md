@@ -68,8 +68,8 @@ Output: [[".","#","#"],
 
 **Language:** C++  
 **Runtime:** 0 ms  
-**Memory:** 8.7 MB  
-**Submitted:** 2026-07-15T07:02:45.729Z  
+**Memory:** 9.5 MB  
+**Submitted:** 2026-07-15T07:04:39.392Z  
 
 ```cpp
 class Solution {
@@ -86,31 +86,31 @@ public:
             {
                 if(bg[i][j] == '*')
                 {
-                    cout << "Entered1 : " << j << endl;
+                    // cout << "Entered1 : " << j << endl;
                     k = j - 1;
                     while(lst < k)
                     {
                         if(bg[i][k] == '.' && bg[i][lst] == '#')
                         {
                             swap(bg[i][k],bg[i][lst]);
-                            lst++;
+                            k--;
                         }
-                        k--;
+                        lst++;
                     }
                     lst = j + 1;
                 }
                 else if(j == n - 1)
                 {
-                    cout << "Entered2 : "  << n - 1 << endl;
+                    // cout << "Entered2 : "  << n - 1 << endl;
                     k = j;
                     while(lst < k)
                     {
                         if(bg[i][k] == '.' && bg[i][lst] == '#')
                         {
                             swap(bg[i][k],bg[i][lst]);
-                            lst++;
+                            k--;
                         }
-                        k--;
+                        lst++;
                     }
                     lst = j;
                 }
