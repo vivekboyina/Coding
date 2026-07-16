@@ -67,9 +67,9 @@ Output: [[".","#","#"],
 ## Solution
 
 **Language:** C++  
-**Runtime:** 23 ms (beats 22.12%)  
-**Memory:** 61 MB (beats 6.37%)  
-**Submitted:** 2026-07-15T07:09:08.457Z  
+**Runtime:** 15 ms (beats 43.96%)  
+**Memory:** 60.8 MB (beats 6.79%)  
+**Submitted:** 2026-07-16T14:22:01.970Z  
 
 ```cpp
 class Solution {
