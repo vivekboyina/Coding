@@ -85,9 +85,9 @@ Going one level up from the root directory is not possible.
 ## Solution
 
 **Language:** C++  
-**Runtime:** 0 ms  
-**Memory:** 7.9 MB  
-**Submitted:** 2026-07-20T14:42:58.090Z  
+**Runtime:** 0 ms (beats 100.00%)  
+**Memory:** 12.6 MB (beats 34.58%)  
+**Submitted:** 2026-07-20T14:43:03.076Z  
 
 ```cpp
 class Solution {
