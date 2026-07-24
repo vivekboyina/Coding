@@ -41,8 +41,8 @@ Explanation: 2 does not exist in nums so return -1
 
 **Language:** C++  
 **Runtime:** 0 ms (beats 100.00%)  
-**Memory:** 31.4 MB (beats 7.94%)  
-**Submitted:** 2026-07-24T15:30:00.511Z  
+**Memory:** 31.3 MB (beats 82.16%)  
+**Submitted:** 2026-07-24T15:30:05.473Z  
 
 ```cpp
 class Solution {
@@ -56,9 +56,7 @@ public:
             m = l + (h - l)/2;
             if(nums[m] > target) h = m - 1;
             else if(nums[m] < target) l = m + 1;
-            else return m;
-            cout << l << " " << h << " " << m << endl;
-        }
+            else return m;        }
         return -1;
     }
 };
