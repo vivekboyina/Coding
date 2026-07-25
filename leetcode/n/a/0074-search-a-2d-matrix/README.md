@@ -44,8 +44,8 @@ Output: false
 
 **Language:** C++  
 **Runtime:** 0 ms (beats 100.00%)  
-**Memory:** 13.4 MB (beats 45.44%)  
-**Submitted:** 2026-07-25T00:57:04.120Z  
+**Memory:** 13.4 MB (beats 7.67%)  
+**Submitted:** 2026-07-25T00:58:05.487Z  
 
 ```cpp
 class Solution {
@@ -58,7 +58,8 @@ public:
         int mid;
         for(int i = 0; i < n; i++)
         {
-            if(mtrx[i][0] > tgt || mtrx[i][m - 1] < tgt) continue;
+            if(mtrx[i][0] > tgt) return false;
+            if(mtrx[i][m - 1] < tgt) continue;
             low = 0;
             high = m - 1;
             while(low <= high)
