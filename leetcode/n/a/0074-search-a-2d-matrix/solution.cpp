@@ -8,7 +8,8 @@ public:
         int mid;
         for(int i = 0; i < n; i++)
         {
-            if(mtrx[i][0] > tgt || mtrx[i][m - 1] < tgt) continue;
+            if(mtrx[i][0] > tgt) return false;
+            if(mtrx[i][m - 1] < tgt) continue;
             low = 0;
             high = m - 1;
             while(low <= high)
