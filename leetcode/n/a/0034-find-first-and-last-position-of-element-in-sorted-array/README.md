@@ -48,9 +48,9 @@ Output: [-1,-1]
 ## Solution
 
 **Language:** C++  
-**Runtime:** 0 ms  
-**Memory:** 8.2 MB  
-**Submitted:** 2026-07-28T09:53:39.186Z  
+**Runtime:** 0 ms (beats 100.00%)  
+**Memory:** 17.5 MB (beats 90.01%)  
+**Submitted:** 2026-07-28T10:04:13.903Z  
 
 ```cpp
 class Solution {
@@ -62,13 +62,15 @@ public:
         int mid;
         while(low <= high)
         {
-            cout << low << " " << high << endl;
             mid = low + (high - low)/2;
             if(nums[mid] == target)
             {
-                if(nums[low] == target && nums[high] == target) return {low,high};
-                else if(nums[low] == target) high = mid;
-                else low = mid + 1;
+                while(mid < n && nums[mid] == target) mid++;
+                high = mid - 1;
+                mid-=1;
+                while(mid >= 0 && nums[mid] == target) mid--;
+                low = mid + 1;
+                return {low,high};
             }
             else if(nums[mid] > target) high = mid - 1;
             else low = mid + 1;
