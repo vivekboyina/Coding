@@ -43,8 +43,8 @@ Output: 1
 
 **Language:** C++  
 **Runtime:** 0 ms  
-**Memory:** 7.9 MB  
-**Submitted:** 2026-07-28T02:29:40.166Z  
+**Memory:** 7.8 MB  
+**Submitted:** 2026-07-28T02:30:26.021Z  
 
 ```cpp
 // The API isBadVersion is defined for you.
@@ -59,10 +59,10 @@ public:
         while(low <= high)
         {
             mid = low + (high - low)/2;
-            if(isBadVersion(mid)) return mid;
+            if(isBadVersion(mid)) high = mid - 1;
             else low = mid + 1;
         }
-        return n;
+        return low;
     }
 };
 ```
