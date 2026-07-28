@@ -49,9 +49,9 @@ Output: 0
 ## Solution
 
 **Language:** C++  
-**Runtime:** 0 ms  
-**Memory:** 8.2 MB  
-**Submitted:** 2026-07-28T12:39:23.410Z  
+**Runtime:** 0 ms (beats 100.00%)  
+**Memory:** 16.2 MB (beats 29.50%)  
+**Submitted:** 2026-07-28T12:52:54.188Z  
 
 ```cpp
 class Solution {
@@ -64,8 +64,9 @@ public:
         while(low <= high)
         {
             mid = low + (high - low)/2;
-            if(nums[low] > nums[mid]) high = mid - 1;
-            else low = mid + 1;
+            if(nums[mid] > nums[high]) low = mid + 1;
+            else if(nums[mid] == nums[high]) high-=1;
+            else if(nums[mid] < nums[high]) high = mid;
         }
         return nums[low];
     }
