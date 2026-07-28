@@ -41,15 +41,25 @@ Your task is to solve it in `O(log(n))` time complexity.
 ## Solution
 
 **Language:** C++  
-**Runtime:** 0 ms  
-**Memory:** 8.1 MB  
-**Submitted:** 2026-07-28T13:07:24.205Z  
+**Runtime:** 0 ms (beats 100.00%)  
+**Memory:** 63.5 MB (beats 79.63%)  
+**Submitted:** 2026-07-28T13:12:11.333Z  
 
 ```cpp
 class Solution {
 public:
     int peakIndexInMountainArray(vector<int>& arr) {
-        return 1;
+        int n = arr.size();
+        int low = 0;
+        int high = n - 1;
+        int mid;
+        while(low <= high)
+        {
+            mid = low + (high - low)/2;
+            if(arr[high] < arr[mid]) high-=1;
+            else low = mid + 1;
+        }
+        return high;
     }
 };
 ```
