@@ -70,7 +70,7 @@ No
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-07-29T15:05:54.884Z  
+**Submitted:** 2026-07-29T15:22:10.853Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -87,13 +87,12 @@ int main() {
         int i = 0;
         int j = n - 1;
         bool ans = true;
+        int o,s;
+        int diff;
         while(i <= j)
         {
-            if(abs(cc[i] - cc[j]) > 2 || abs(cc[i] - cc[j]) == 1)
-            {
-                ans = false;
-                break;
-            }
+            diff = abs(cc[i] - cc[j]);
+            if()
             i++;
             j--;
         }
