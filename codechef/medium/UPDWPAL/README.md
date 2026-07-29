@@ -67,16 +67,16 @@ No
 
 ## Solution
 
-**Language:** c_cpp  
+**Language:** C++  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-07-29T16:09:59.449Z  
+**Submitted:** 2026-07-29T16:09:17.966Z  
 
-```c_cpp
+```cpp
 #include <bits/stdc++.h>
 using namespace std;
 
-bool check(vector<int> cc,int i,int j,int n)
+bool check(vector<int>& cc,int i,int j,int n)
 {
     while(i <= j)
     {
@@ -84,6 +84,7 @@ bool check(vector<int> cc,int i,int j,int n)
         else cc[i]+=1;
         if(cc[j] > n) cc[j]-=1;
         else cc[j]+=1;
+        cout << cc[i] << " " << cc[j] << endl;
         if(cc[i] != cc[j]) return false;
         i++;
         j--;
@@ -115,7 +116,9 @@ int main() {
             else if(diff == 2)
             {
                 ans = check(cc,0,n - 1,min(cc[i],cc[j]));
+                cout << ans << endl;
                 if(!ans) ans = check(cc,0,n - 1,min(cc[i],cc[j]) + 1);
+                cout << ans << endl;
                 break;
             }
             i++;
