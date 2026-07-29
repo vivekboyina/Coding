@@ -16,13 +16,11 @@ int main() {
 	        continue;
 	    }
 	    int ans = 0;
-	    while(st >= x)
-	    {
+	    do{
 	        st = st + z;
 	        x = x + y;
 	        ans+=1;
-	    }
-	    cout << st << " " << x << endl;
+	    }while(st >= x);
 	    cout << ans << endl;
 	}
 }
