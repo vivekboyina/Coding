@@ -70,7 +70,7 @@ No
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-07-29T15:22:10.853Z  
+**Submitted:** 2026-07-29T15:22:28.851Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -87,7 +87,7 @@ int main() {
         int i = 0;
         int j = n - 1;
         bool ans = true;
-        int o,s;
+        int o = -1,s = -1;
         int diff;
         while(i <= j)
         {
