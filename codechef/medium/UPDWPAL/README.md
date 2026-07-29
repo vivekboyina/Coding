@@ -67,17 +67,18 @@ No
 
 ## Solution
 
-**Language:** C++  
+**Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-07-29T15:39:32.546Z  
+**Submitted:** 2026-07-29T15:41:53.838Z  
 
-```cpp
+```c_cpp
 #include <bits/stdc++.h>
 using namespace std;
 
 bool check(vector<int>cc,int i,int j,int n)
 {
+    cout << "In check" << endl;
     if(cc[i] > n) cc[i]-=1;
     else cc[i]+=1;
     if(cc[j] > n) cc[j]-=1;
@@ -99,9 +100,10 @@ int main() {
         bool ans = true;
         int o = -1,s = -1;
         int diff;
-        int usd;
+        int usd = -1;
         while(i <= j)
         {
+            cout << usd << endl;
             diff = abs(cc[i] - cc[j]);
             if(ans == false) break;
             if(diff != 0 || diff != 2)
@@ -119,6 +121,7 @@ int main() {
                 else if(usd != -1) ans = check(cc,i,j,usd);
                 else
                 {
+                    cout << "Entered" << endl;
                     ans = check(cc,i,j,o);
                     if(ans) usd = o;
                     else
@@ -131,6 +134,7 @@ int main() {
             }
             i++;
             j--;
+            
         }
         if(ans) cout << "YES" << endl;
         else cout << "NO" << endl;
