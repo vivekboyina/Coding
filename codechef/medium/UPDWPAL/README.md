@@ -70,7 +70,7 @@ No
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-07-29T15:22:28.851Z  
+**Submitted:** 2026-07-29T15:28:38.842Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -92,7 +92,24 @@ int main() {
         while(i <= j)
         {
             diff = abs(cc[i] - cc[j]);
-            if()
+            if(diff != 0 || diff != 2)
+            {
+                ans = false;
+                break;
+            }
+            if(diff == 2)
+            {
+                if(o == -1 && s == -1)
+                {
+                    o = min(cc[i],cc[j]);
+                    s = o + 1;
+                }
+                else
+                {
+                    if(cc[i] > o) cc[i]-=1;
+                    else cc
+                }
+            }
             i++;
             j--;
         }
