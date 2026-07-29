@@ -14,7 +14,7 @@ int main() {
         bool ans = true;
         while(i <= j)
         {
-            if(abs(cc[i] - cc[j]) > 2)
+            if(abs(cc[i] - cc[j]) > 2 || abs(cc[i] - cc[j]) == 1)
             {
                 ans = false;
                 break;
