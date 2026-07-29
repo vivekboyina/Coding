@@ -1,0 +1,63 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+bool check(vector<int>cc,int i,int j,int n)
+{
+    if(cc[i] > n) cc[i]-=1;
+    else cc[i]+=1;
+    if(cc[j] > n) cc[j]-=1;
+    else cc[j]+=1;
+    return cc[i] == cc[j];
+}
+
+int main() {
+    int t;
+    cin >> t;
+    while(t--)
+    {
+        int n;
+        cin >> n;
+        vector<int>cc(n);
+        for(int i = 0; i < n; i++) cin >> cc[i];
+        int i = 0;
+        int j = n - 1;
+        bool ans = true;
+        int o = -1,s = -1;
+        int diff;
+        int usd;
+        while(i <= j)
+        {
+            diff = abs(cc[i] - cc[j]);
+            if(ans == false) break;
+            if(diff != 0 || diff != 2)
+            {
+                ans = false;
+                break;
+            }
+            if(diff == 2)
+            {
+                if(o == -1 && s == -1)
+                {
+                    o = min(cc[i],cc[j]);
+                    s = o + 1;
+                }
+                else if(usd != -1) ans = check(cc,i,j,usd);
+                else
+                {
+                    ans = check(cc,i,j,o);
+                    if(ans) usd = o;
+                    else
+                    {
+                        ans = check(cc,i,j,s);
+                        if(ans) usd = s;
+                        else ans = false;
+                    }
+                }
+            }
+            i++;
+            j--;
+        }
+        if(ans) cout << "YES" << endl;
+        else cout << "NO" << endl;
+    }
+}
