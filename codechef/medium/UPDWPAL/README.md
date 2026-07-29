@@ -67,22 +67,29 @@ No
 
 ## Solution
 
-**Language:** c_cpp  
+**Language:** C++  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-07-29T15:50:26.757Z  
+**Submitted:** 2026-07-29T16:07:33.521Z  
 
-```c_cpp
+```cpp
 #include <bits/stdc++.h>
 using namespace std;
 
-bool check(vector<int>cc,int i,int j,int n)
+bool check(vector<int>& cc,int i,int j,int n)
 {
-    if(cc[i] > n) cc[i]-=1;
-    else cc[i]+=1;
-    if(cc[j] > n) cc[j]-=1;
-    else cc[j]+=1;
-    return cc[i] == cc[j];
+    while(i <= j)
+    {
+        if(cc[i] > n) cc[i]-=1;
+        else cc[i]+=1;
+        if(cc[j] > n) cc[j]-=1;
+        else cc[j]+=1;
+        cout << cc[i] << " " << cc[j] << endl;
+        if(cc[i] != cc[j]) return false;
+        i++;
+        j--;
+    }
+    return true;
 }
 
 int main() {
@@ -97,41 +104,25 @@ int main() {
         int i = 0;
         int j = n - 1;
         bool ans = true;
-        int o = -1,s = -1;
         int diff;
-        int usd = -1;
         while(i <= j)
         {
             diff = abs(cc[i] - cc[j]);
-            if(ans == false) break;
             if(diff == 1 || diff > 2)
             {
                 ans = false;
                 break;
             }
-            if(diff == 2)
+            else if(diff == 2)
             {
-                if(o == -1 && s == -1)
-                {
-                    o = min(cc[i],cc[j]);
-                    s = o + 1;
-                }
-                else if(usd != -1) ans = check(cc,i,j,usd);
-                else
-                {
-                    ans = check(cc,i,j,o);
-                    if(ans) usd = o;
-                    else
-                    {
-                        ans = check(cc,i,j,s);
-                        if(ans) usd = s;
-                        else ans = false;
-                    }
-                }
+                ans = check(cc,0,n - 1,min(cc[i],cc[j]));
+                cout << ans << endl;
+                if(!ans) ans = check(cc,0,n - 1,min(cc[i],cc[j]) + 1);
+                cout << ans << endl;
+                break;
             }
             i++;
             j--;
-            
         }
         if(ans) cout << "YES" << endl;
         else cout << "NO" << endl;
