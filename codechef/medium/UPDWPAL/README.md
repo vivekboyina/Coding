@@ -70,11 +70,21 @@ No
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-07-29T15:22:33.842Z  
+**Submitted:** 2026-07-29T15:35:32.845Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
 using namespace std;
+
+bool check(vector<int>cc,int i,int j,int n)
+{
+    if(cc[i] > n) cc[i]-=1;
+    else cc[i]+=1;
+    if(cc[j] > n) cc[j]-=1;
+    else cc[j]+=1;
+    return cc[i] == cc[j];
+}
+
 int main() {
     int t;
     cin >> t;
@@ -89,10 +99,36 @@ int main() {
         bool ans = true;
         int o = -1,s = -1;
         int diff;
+        int usd;
         while(i <= j)
         {
             diff = abs(cc[i] - cc[j]);
-            if()
+            if(ans == false) break;
+            if(diff != 0 || diff != 2)
+            {
+                ans = false;
+                break;
+            }
+            if(diff == 2)
+            {
+                if(o == -1 && s == -1)
+                {
+                    o = min(cc[i],cc[j]);
+                    s = o + 1;
+                }
+                else if(usd != -1) ans = check(cc,i,j,usd);
+                else
+                {
+                    ans = check(cc,i,j,o);
+                    if(ans) usd = o;
+                    else
+                    {
+                        ans = check(cc,i,j,s);
+                        if(ans) usd = s;
+                        else ans = false;
+                    }
+                }
+            }
             i++;
             j--;
         }
