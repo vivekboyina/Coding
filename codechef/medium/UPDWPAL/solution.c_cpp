@@ -12,13 +12,12 @@ int main() {
         int i = 0;
         int j = n - 1;
         bool ans = true;
+        int o,s;
+        int diff;
         while(i <= j)
         {
-            if(abs(cc[i] - cc[j]) > 2 || abs(cc[i] - cc[j]) == 1)
-            {
-                ans = false;
-                break;
-            }
+            diff = abs(cc[i] - cc[j]);
+            if()
             i++;
             j--;
         }
