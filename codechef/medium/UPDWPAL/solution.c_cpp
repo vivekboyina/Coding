@@ -12,7 +12,7 @@ int main() {
         int i = 0;
         int j = n - 1;
         bool ans = true;
-        int o,s;
+        int o = -1,s = -1;
         int diff;
         while(i <= j)
         {
