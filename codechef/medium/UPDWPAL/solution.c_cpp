@@ -1,0 +1,28 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main() {
+    int t;
+    cin >> t;
+    while(t--)
+    {
+        int n;
+        cin >> n;
+        vector<int>cc(n);
+        for(int i = 0; i < n; i++) cin >> cc[i];
+        int i = 0;
+        int j = n - 1;
+        bool ans = true;
+        while(i <= j)
+        {
+            if(abs(cc[i] - cc[j]) > 2)
+            {
+                ans = false;
+                break;
+            }
+            i++;
+            j--;
+        }
+        if(ans) cout << "YES" << endl;
+        else cout << "NO" << endl;
+    }
+}
