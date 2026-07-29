@@ -70,7 +70,7 @@ No
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-07-29T15:56:52.928Z  
+**Submitted:** 2026-07-29T15:52:40.922Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -78,7 +78,6 @@ using namespace std;
 
 bool check(vector<int>cc,int i,int j,int n)
 {
-    cout << "In check" << endl;
     if(cc[i] > n) cc[i]-=1;
     else cc[i]+=1;
     if(cc[j] > n) cc[j]-=1;
