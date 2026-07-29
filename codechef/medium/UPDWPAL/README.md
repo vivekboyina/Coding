@@ -70,84 +70,74 @@ No
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-07-29T16:00:45.859Z  
+**Submitted:** 2026-07-29T15:56:47.589Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
 using namespace std;
 
-// Function to check if a specific X can turn the array into a palindrome
-bool isValidX(const vector<int>& A, long long X) {
-    int i = 0, j = A.size() - 1;
-    while (i < j) {
-        long long val_i = (A[i] <= X) ? A[i] + 1 : A[i] - 1;
-        long long val_j = (A[j] <= X) ? A[j] + 1 : A[j] - 1;
-        if (val_i != val_j) {
-            return false;
-        }
-        i++;
-        j--;
-    }
-    return true;
-}
-
-void solve() {
-    int n;
-    cin >> n;
-    vector<int> A(n);
-    for (int i = 0; i < n; i++) {
-        cin >> A[i];
-    }
-
-    int i = 0, j = n - 1;
-    long long option1 = -1, option2 = -1;
-    bool mismatch_found = false;
-
-    // Find the first mismatched pair to narrow down the choices for X
-    while (i < j) {
-        if (A[i] != A[j]) {
-            long long diff = abs(A[i] - A[j]);
-            if (diff != 2) {
-                // If the difference is not exactly 2, it can never match
-                cout << "NO\n";
-                return;
-            }
-            // To fix a difference of 2, X must match the smaller value
-            option1 = min(A[i], A[j]);
-            mismatch_found = true;
-            break;
-        }
-        i++;
-        j--;
-    }
-
-    // If the array is already a palindrome without any operation
-    if (!mismatch_found) {
-        cout << "YES\n";
-        return;
-    }
-
-    // Check if our determined value for X satisfies the whole array
-    if (isValidX(A, option1)) {
-        cout << "YES\n";
-    } else {
-        cout << "NO\n";
-    }
+bool check(vector<int>cc,int i,int j,int n)
+{
+    cout << "In check" << endl;
+    if(cc[i] > n) cc[i]-=1;
+    else cc[i]+=1;
+    if(cc[j] > n) cc[j]-=1;
+    else cc[j]+=1;
+    return cc[i] == cc[j];
 }
 
 int main() {
-    // Fast I/O
-    ios_base::sync_with_stdio(false);
-    cin.tie(NULL);
-    
     int t;
     cin >> t;
-    while (t--) {
-        solve();
+    while(t--)
+    {
+        int n;
+        cin >> n;
+        vector<int>cc(n);
+        for(int i = 0; i < n; i++) cin >> cc[i];
+        int i = 0;
+        int j = n - 1;
+        bool ans = true;
+        int o = -1,s = -1;
+        int diff;
+        int usd = -1;
+        while(i <= j)
+        {
+            diff = abs(cc[i] - cc[j]);
+            if(ans == false) break;
+            if(diff == 1 || diff > 2)
+            {
+                ans = false;
+                break;
+            }
+            if(diff == 2)
+            {
+                if(o == -1 && s == -1)
+                {
+                    o = min(cc[i],cc[j]);
+                    s = o + 1;
+                }
+                else if(usd != -1) ans = check(cc,i,j,usd);
+                else
+                {
+                    ans = check(cc,i,j,o);
+                    if(ans) usd = o;
+                    else
+                    {
+                        ans = check(cc,i,j,s);
+                        if(ans) usd = s;
+                        else ans = false;
+                    }
+                }
+            }
+            i++;
+            j--;
+            
+        }
+        if(ans) cout << "YES" << endl;
+        else cout << "NO" << endl;
     }
-    return 0;
 }
-
 ```
 
 ---
