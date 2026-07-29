@@ -67,18 +67,17 @@ No
 
 ## Solution
 
-**Language:** C++  
+**Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-07-29T15:47:32.622Z  
+**Submitted:** 2026-07-29T15:54:22.847Z  
 
-```cpp
+```c_cpp
 #include <bits/stdc++.h>
 using namespace std;
 
 bool check(vector<int>cc,int i,int j,int n)
 {
-    cout << "In check" << endl;
     if(cc[i] > n) cc[i]-=1;
     else cc[i]+=1;
     if(cc[j] > n) cc[j]-=1;
@@ -104,10 +103,8 @@ int main() {
         while(i <= j)
         {
             diff = abs(cc[i] - cc[j]);
-            cout << diff << endl;
-            cout << ans << endl;
             if(ans == false) break;
-            if(diff != 0 || diff != 2)
+            if(diff == 1 || diff > 2)
             {
                 ans = false;
                 break;
