@@ -70,7 +70,7 @@ No
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-07-29T15:44:17.836Z  
+**Submitted:** 2026-07-29T15:57:21.838Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -103,10 +103,9 @@ int main() {
         int usd = -1;
         while(i <= j)
         {
-            cout << usd << endl;
             diff = abs(cc[i] - cc[j]);
             if(ans == false) break;
-            if(diff != 0 || diff != 2)
+            if(diff == 1 || diff > 2)
             {
                 ans = false;
                 break;
@@ -121,7 +120,6 @@ int main() {
                 else if(usd != -1) ans = check(cc,i,j,usd);
                 else
                 {
-                    cout << "Entered" << endl;
                     ans = check(cc,i,j,o);
                     if(ans) usd = o;
                     else
