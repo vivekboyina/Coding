@@ -36,7 +36,7 @@ Explanation: Binary representation of 500 is 111110100, in which 3rd index bit f
 **Language:** C++  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-07-30T07:03:35.308Z  
+**Submitted:** 2026-07-30T07:06:04.587Z  
 
 ```cpp
 class Solution {
