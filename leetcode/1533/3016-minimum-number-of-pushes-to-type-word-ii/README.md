@@ -77,9 +77,9 @@ It can be shown that no other mapping can provide a lower cost.
 ## Solution
 
 **Language:** C++  
-**Runtime:** 12 ms (beats 42.94%)  
+**Runtime:** 8 ms (beats 61.48%)  
 **Memory:** 25.3 MB (beats 94.44%)  
-**Submitted:** 2026-07-31T02:41:41.119Z  
+**Submitted:** 2026-07-31T02:43:00.582Z  
 
 ```cpp
 class Solution {
@@ -92,7 +92,7 @@ public:
         int a = 1;
         for(int i = 0; i < 26; i++)
         {
-            if(i % 8 == 0 && i > 0) a+=1;
+            a = (i/8) + 1;
             ans+=(a*fr[i]);
         }
         return ans;
