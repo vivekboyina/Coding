@@ -1,21 +1,15 @@
 class Solution {
 public:
     int minimumPushes(string word) {
-        unordered_map<char,int>mp;
-        for(char c : word) mp[c]++;
+        vector<int>fr(26,0);
+        for(char c : word) fr[c - 'a']++;
+        sort(fr.begin(),fr.end(),greater<int>());
         int ans = 0;
         int a = 1;
-        int cnt = 0;
-        cout << mp.size() << endl;
-        for(auto it : mp)
+        for(int i = 0; i < 26; i++)
         {
-            ans+=(a*it.second);
-            cnt++;
-            if(cnt == 8)
-            {
-                cnt = 0;
-                a+=1;
-            }
+            if(i % 8 == 0 && i > 0) a+=1;
+            ans+=(a*fr[i]);
         }
         return ans;
     }
