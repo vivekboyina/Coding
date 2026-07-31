@@ -8,7 +8,7 @@ public:
         int a = 1;
         for(int i = 0; i < 26; i++)
         {
-            if(i % 8 == 0 && i > 0) a+=1;
+            a = (i/8) + 1;
             ans+=(a*fr[i]);
         }
         return ans;
