@@ -79,7 +79,7 @@ It can be shown that no other mapping can provide a lower cost.
 **Language:** C++  
 **Runtime:** 0 ms  
 **Memory:** 8 MB  
-**Submitted:** 2026-07-31T02:36:43.732Z  
+**Submitted:** 2026-07-31T02:37:22.340Z  
 
 ```cpp
 class Solution {
@@ -90,6 +90,7 @@ public:
         int ans = 0;
         int a = 1;
         int cnt = 0;
+        cout << mp.size() << endl;
         for(auto it : mp)
         {
             ans+=(a*it.second);
