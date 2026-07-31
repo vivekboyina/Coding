@@ -6,6 +6,7 @@ public:
         int ans = 0;
         int a = 1;
         int cnt = 0;
+        cout << mp.size() << endl;
         for(auto it : mp)
         {
             ans+=(a*it.second);
