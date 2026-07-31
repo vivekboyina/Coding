@@ -77,29 +77,23 @@ It can be shown that no other mapping can provide a lower cost.
 ## Solution
 
 **Language:** C++  
-**Runtime:** 0 ms  
-**Memory:** 8 MB  
-**Submitted:** 2026-07-31T02:37:22.340Z  
+**Runtime:** 12 ms (beats 42.94%)  
+**Memory:** 25.3 MB (beats 94.44%)  
+**Submitted:** 2026-07-31T02:41:41.119Z  
 
 ```cpp
 class Solution {
 public:
     int minimumPushes(string word) {
-        unordered_map<char,int>mp;
-        for(char c : word) mp[c]++;
+        vector<int>fr(26,0);
+        for(char c : word) fr[c - 'a']++;
+        sort(fr.begin(),fr.end(),greater<int>());
         int ans = 0;
         int a = 1;
-        int cnt = 0;
-        cout << mp.size() << endl;
-        for(auto it : mp)
+        for(int i = 0; i < 26; i++)
         {
-            ans+=(a*it.second);
-            cnt++;
-            if(cnt == 8)
-            {
-                cnt = 0;
-                a+=1;
-            }
+            if(i % 8 == 0 && i > 0) a+=1;
+            ans+=(a*fr[i]);
         }
         return ans;
     }
