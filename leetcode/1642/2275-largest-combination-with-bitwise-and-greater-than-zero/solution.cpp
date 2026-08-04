@@ -5,7 +5,7 @@ public:
         int n = cnds.size();
         int ban;
         int cnt;
-        for(int i = 0; i < (1 << n); i++)
+        for(int i = 0; i < (1 << 24); i++)
         {
             ban = -1;
             cnt = 0;
