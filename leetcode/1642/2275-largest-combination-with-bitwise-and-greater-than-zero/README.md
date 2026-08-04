@@ -48,9 +48,9 @@ The size of the combination is 2, so we return 2.
 ## Solution
 
 **Language:** C++  
-**Runtime:** 0 ms  
-**Memory:** 8.1 MB  
-**Submitted:** 2026-08-04T04:47:28.356Z  
+**Runtime:** 195 ms  
+**Memory:** 8.2 MB  
+**Submitted:** 2026-08-04T04:58:20.350Z  
 
 ```cpp
 class Solution {
@@ -60,7 +60,7 @@ public:
         int n = cnds.size();
         int ban;
         int cnt;
-        for(int i = 0; i < (1 << n); i++)
+        for(int i = 0; i < (1 << 24); i++)
         {
             ban = -1;
             cnt = 0;
