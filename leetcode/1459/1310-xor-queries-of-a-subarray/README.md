@@ -51,9 +51,9 @@ Output: [8,0,4,4]
 ## Solution
 
 **Language:** C++  
-**Runtime:** 0 ms  
-**Memory:** 8.4 MB  
-**Submitted:** 2026-08-04T14:50:29.231Z  
+**Runtime:** 0 ms (beats 100.00%)  
+**Memory:** 91.3 MB (beats 94.79%)  
+**Submitted:** 2026-08-04T14:50:32.604Z  
 
 ```cpp
 class Solution {
