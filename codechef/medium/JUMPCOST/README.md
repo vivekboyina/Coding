@@ -58,17 +58,22 @@ Output
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-08-05T14:57:05.693Z  
+**Submitted:** 2026-08-05T15:06:35.048Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
 using namespace std;
-
 int main() {
-	// your code goes here
-
+    int t;
+    cin >> t;
+    while(t--)
+    {
+        int n;
+        cin >> n;
+        vector<int>cc(n);
+        for(int i = 0; i < n; i++) cin >> cc[i];
+    }
 }
-
 ```
 
 ---
