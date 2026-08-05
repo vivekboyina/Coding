@@ -58,7 +58,7 @@ Output
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-08-05T15:12:10.649Z  
+**Submitted:** 2026-08-05T15:13:36.657Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -77,7 +77,7 @@ int main() {
         int ans = 0;
         for(int i = 1; i < n; i++)
         {
-            if(cc[i] - i > 0)
+            if(cc[i] - i >= 0)
             {
                 ans+=(cc[i] - i + id);
                 id = i;
