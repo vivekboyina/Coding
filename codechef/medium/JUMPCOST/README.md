@@ -58,7 +58,7 @@ Output
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-08-05T15:06:35.048Z  
+**Submitted:** 2026-08-05T15:10:46.562Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -72,6 +72,18 @@ int main() {
         cin >> n;
         vector<int>cc(n);
         for(int i = 0; i < n; i++) cin >> cc[i];
+        int fst = cc[0];
+        int id = 0;
+        int ans = 0;
+        for(int i = 1; i < n; i++)
+        {
+            if(cc[i] - i > 0)
+            {
+                ans+=(cc[i] - i + id);
+                id = i;
+            }
+        }
+        cout << ans << endl;
     }
 }
 ```
