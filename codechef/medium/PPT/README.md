@@ -55,7 +55,7 @@ Output
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-08-05T14:31:39.081Z  
+**Submitted:** 2026-08-05T14:36:13.022Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -65,8 +65,7 @@ int main() {
 	// your code goes here
 	int n;
 	cin >> n;
-	int ans = 20 - n;
-	cout << ans;
+	cout << (20 - n);
 }
 
 ```
