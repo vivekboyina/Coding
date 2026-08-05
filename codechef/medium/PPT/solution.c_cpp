@@ -5,6 +5,5 @@ int main() {
 	// your code goes here
 	int n;
 	cin >> n;
-	int ans = 20 - n;
-	cout << ans;
+	cout << (20 - n);
 }
