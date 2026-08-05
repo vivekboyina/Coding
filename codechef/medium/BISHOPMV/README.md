@@ -56,12 +56,12 @@ Output
 
 ## Solution
 
-**Language:** C++  
+**Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-08-05T14:54:45.726Z  
+**Submitted:** 2026-08-05T14:54:54.102Z  
 
-```cpp
+```c_cpp
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -73,7 +73,13 @@ int main() {
 	{
 	    int x1,y1,x2,y2;
 	    cin >> x1 >> y1 >> x2 >> y2;
-	    
+	    int a = x1 + y1;
+	    int b = x2 + y2;
+	    int c = x1 - y1;
+	    int d = x2 - y2;
+	    if(a % 2 != b % 2) cout << -1 << endl;
+	    else if(a == b || c == d) cout << 1 << endl;
+	    else cout << 2 << endl;
 	}
 }
 
