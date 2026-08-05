@@ -58,29 +58,28 @@ Output
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-08-05T15:22:08.941Z  
+**Submitted:** 2026-08-05T15:18:10.772Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
-
 using namespace std;
 int main() {
     int t;
     cin >> t;
-    while (t--)
+    while(t--)
     {
         int n;
         cin >> n;
-        vector < int > cc(n);
-        for (int i = 0; i < n; i++) cin >> cc[i];
+        vector<int>cc(n);
+        for(int i = 0; i < n; i++) cin >> cc[i];
         int fst = cc[0];
         int id = 0;
         int ans = 0;
-        for (int i = 1; i < n; i++)
+        for(int i = 1; i < n; i++)
         {
-            if (cc[i] - i >= 0)
+            if(cc[i] - i >= 0)
             {
-                ans += ((cc[i] - i) + id);
+                ans+=(cc[i] - i + id);
                 id = i;
             }
         }
