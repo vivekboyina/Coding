@@ -1,0 +1,17 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+	// your code goes here
+	int t;
+	cin >> t;
+	while(t--)
+	{
+	    int n,a,b;
+	    cin >> n >> a >> b;
+	    int ans = 0;
+	    if(n < 4) ans = n*a;
+	    else ans = 3*a + (n - 3)*b;
+	    cout << ans << endl;
+	}
+}
