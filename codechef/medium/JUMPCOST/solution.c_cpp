@@ -14,7 +14,7 @@ int main() {
         int ans = 0;
         for(int i = 1; i < n; i++)
         {
-            if(cc[i] - i > 0)
+            if(cc[i] - i >= 0)
             {
                 ans+=(cc[i] - i + id);
                 id = i;
