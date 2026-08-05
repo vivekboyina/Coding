@@ -1,22 +1,23 @@
 #include <bits/stdc++.h>
+
 using namespace std;
 int main() {
     int t;
     cin >> t;
-    while(t--)
+    while (t--)
     {
         int n;
         cin >> n;
-        vector<int>cc(n);
-        for(int i = 0; i < n; i++) cin >> cc[i];
+        vector < int > cc(n);
+        for (int i = 0; i < n; i++) cin >> cc[i];
         int fst = cc[0];
         int id = 0;
         int ans = 0;
-        for(int i = 1; i < n; i++)
+        for (int i = 1; i < n; i++)
         {
-            if(cc[i] - i >= 0)
+            if (cc[i] - i >= 0)
             {
-                ans+=(cc[i] - i + id);
+                ans += (cc[i] - i + id);
                 id = i;
             }
         }
