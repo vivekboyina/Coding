@@ -55,12 +55,12 @@ Output
 
 ## Solution
 
-**Language:** C++  
+**Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-08-05T15:32:20.800Z  
+**Submitted:** 2026-08-05T15:31:51.678Z  
 
-```cpp
+```c_cpp
 #include <iostream>
 #include <vector>
 #include <algorithm>
