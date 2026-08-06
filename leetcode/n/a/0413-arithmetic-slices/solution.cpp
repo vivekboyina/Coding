@@ -9,12 +9,15 @@ public:
         int k;
         for(int i = 1; i < n; i++)
         {
-            if(diff[i - 1] == diff[i]) cnt++;
-            else cnt = 1;
-            cout << cnt << endl;
+            while(i < n && diff[i - 1] == diff[i])
+            {
+                cnt++;
+                i++;
+            }
             k = cnt - 1;
             k = (k * (k + 1))/2;
             ans+=k;
+            cnt = 1;
         }
         return ans;
     }
