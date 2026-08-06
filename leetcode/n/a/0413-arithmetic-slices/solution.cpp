@@ -7,6 +7,7 @@ public:
         int ans = 0;
         int cnt = 1;
         int k;
+        cout << n << endl;
         for(int i = 1; i < n; i++)
         {
             while(i < n && diff[i - 1] == diff[i])
