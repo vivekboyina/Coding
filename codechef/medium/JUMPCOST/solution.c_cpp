@@ -17,7 +17,7 @@ int main() {
         {
             if (cc[i] - i >= 0)
             {
-                ans += (cc[i] - i + id);
+                ans += ((cc[i] - i) + id);
                 id = i;
             }
         }
