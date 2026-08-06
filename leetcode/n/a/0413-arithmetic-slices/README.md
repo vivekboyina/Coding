@@ -42,8 +42,8 @@ Output: 0
 
 **Language:** C++  
 **Runtime:** 0 ms  
-**Memory:** 8.2 MB  
-**Submitted:** 2026-08-06T06:05:17.054Z  
+**Memory:** 8.3 MB  
+**Submitted:** 2026-08-06T06:05:38.815Z  
 
 ```cpp
 class Solution {
@@ -62,7 +62,7 @@ public:
             cout << cnt << endl;
             k = cnt - 1;
             k = (k * (k + 1))/2;
-            ans = max(ans,k);
+            ans+=k;
         }
         return ans;
     }
