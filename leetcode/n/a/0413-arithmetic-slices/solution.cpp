@@ -14,6 +14,7 @@ public:
                 cnt++;
                 i++;
             }
+            cout << cnt << endl;
             k = cnt - 1;
             k = (k * (k + 1))/2;
             ans+=k;
