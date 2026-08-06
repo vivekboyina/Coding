@@ -14,7 +14,7 @@ public:
             cout << cnt << endl;
             k = cnt - 1;
             k = (k * (k + 1))/2;
-            ans = max(ans,k);
+            ans+=k;
         }
         return ans;
     }
