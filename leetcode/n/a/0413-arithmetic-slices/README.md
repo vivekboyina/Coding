@@ -42,8 +42,8 @@ Output: 0
 
 **Language:** C++  
 **Runtime:** 0 ms  
-**Memory:** 8.3 MB  
-**Submitted:** 2026-08-06T06:07:58.577Z  
+**Memory:** 8.2 MB  
+**Submitted:** 2026-08-06T06:08:57.961Z  
 
 ```cpp
 class Solution {
@@ -55,6 +55,7 @@ public:
         int ans = 0;
         int cnt = 1;
         int k;
+        cout << n << endl;
         for(int i = 1; i < n; i++)
         {
             while(i < n && diff[i - 1] == diff[i])
@@ -62,6 +63,7 @@ public:
                 cnt++;
                 i++;
             }
+            cout << cnt << endl;
             k = cnt - 1;
             k = (k * (k + 1))/2;
             ans+=k;
