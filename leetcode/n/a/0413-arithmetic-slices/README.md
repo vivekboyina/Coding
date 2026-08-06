@@ -41,33 +41,21 @@ Output: 0
 ## Solution
 
 **Language:** C++  
-**Runtime:** 0 ms  
-**Memory:** 8.2 MB  
-**Submitted:** 2026-08-06T06:08:57.961Z  
+**Runtime:** 0 ms (beats 100.00%)  
+**Memory:** 10.9 MB (beats 60.42%)  
+**Submitted:** 2026-08-06T06:13:55.573Z  
 
 ```cpp
 class Solution {
 public:
     int numberOfArithmeticSlices(vector<int>& nums) {
-        int n = nums.size();
-        vector<int>diff(n,0);
-        for(int i = 1; i < n; i++) diff[i] = nums[i] - nums[i - 1];
         int ans = 0;
-        int cnt = 1;
-        int k;
-        cout << n << endl;
-        for(int i = 1; i < n; i++)
+        int cnt = 0;
+        for(int i = 2; i < nums.size(); i++)
         {
-            while(i < n && diff[i - 1] == diff[i])
-            {
-                cnt++;
-                i++;
-            }
-            cout << cnt << endl;
-            k = cnt - 1;
-            k = (k * (k + 1))/2;
-            ans+=k;
-            cnt = 1;
+            if(nums[i - 1] - nums[i] == nums[i - 2] - nums[i - 1]) cnt++;
+            else cnt = 0;
+            ans+=cnt;
         }
         return ans;
     }
