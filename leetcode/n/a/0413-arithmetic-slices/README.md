@@ -41,9 +41,9 @@ Output: 0
 ## Solution
 
 **Language:** C++  
-**Runtime:** 0 ms (beats 100.00%)  
-**Memory:** 11.1 MB (beats 5.67%)  
-**Submitted:** 2026-08-06T06:12:03.135Z  
+**Runtime:** 0 ms  
+**Memory:** 8.2 MB  
+**Submitted:** 2026-08-06T06:08:23.456Z  
 
 ```cpp
 class Solution {
@@ -51,20 +51,9 @@ public:
     int numberOfArithmeticSlices(vector<int>& nums) {
         int n = nums.size();
         vector<int>diff(n,0);
-        unordered_map<int,int>mp;
-        for(int i = 1; i < n; i++)
-        {
-            diff[i] = nums[i] - nums[i - 1];
-            mp[diff[i]]++;
-        }
-        if(mp.size() == 1)
-        {
-            n = n - 2;
-            n = (n * (n + 1))/2;
-            return n;
-        }
+        for(int i = 1; i < n; i++) diff[i] = nums[i] - nums[i - 1];
         int ans = 0;
-        int cnt = 0;
+        int cnt = 1;
         int k;
         for(int i = 1; i < n; i++)
         {
@@ -73,6 +62,7 @@ public:
                 cnt++;
                 i++;
             }
+            cout << cnt << endl;
             k = cnt - 1;
             k = (k * (k + 1))/2;
             ans+=k;
