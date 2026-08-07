@@ -46,30 +46,19 @@ Output: []
 ## Solution
 
 **Language:** C++  
-**Runtime:** 19 ms (beats 0.71%)  
-**Memory:** 13.9 MB (beats 8.77%)  
-**Submitted:** 2026-08-07T12:33:42.002Z  
+**Runtime:** 0 ms  
+**Memory:** 8.2 MB  
+**Submitted:** 2026-08-07T12:42:33.923Z  
 
 ```cpp
 class Solution {
 public:
-    ListNode* rec(ListNode* head)
-    {
-        if(head == nullptr) return head;
-        ListNode* tmp = new ListNode(head -> val);
-        ListNode* ans = rec(head -> next);
-        if(ans == nullptr) ans = tmp;
-        else
-        {
-            ListNode* cur = ans;
-            while(cur -> next != nullptr) cur = cur -> next;
-            cur -> next = tmp;
-        }
-        return ans;
-    }
     ListNode* reverseList(ListNode* head) {
-        head = rec(head);
-        return head;
+        if(head == nullptr || head -> next == nullptr) return head;
+        ListNode* ans = reverseList(head -> next);
+        head -> next -> next = head;
+        head -> next = nullptr;
+        return ans;
     }
 };
 ```
