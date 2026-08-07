@@ -51,9 +51,9 @@ We return 0 because no subarrays meet the conditions.
 ## Solution
 
 **Language:** C++  
-**Runtime:** 0 ms  
-**Memory:** 8.2 MB  
-**Submitted:** 2026-08-07T05:13:18.706Z  
+**Runtime:** 107 ms (beats 38.38%)  
+**Memory:** 103 MB (beats 10.90%)  
+**Submitted:** 2026-08-07T05:13:25.141Z  
 
 ```cpp
 class Solution {
