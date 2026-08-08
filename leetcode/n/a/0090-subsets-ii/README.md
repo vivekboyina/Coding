@@ -36,31 +36,31 @@ Output: [[],[0]]
 ## Solution
 
 **Language:** C++  
-**Runtime:** 11 ms (beats 5.96%)  
-**Memory:** 18.7 MB (beats 5.17%)  
-**Submitted:** 2026-08-08T03:08:32.085Z  
+**Runtime:** 6 ms (beats 7.50%)  
+**Memory:** 17.5 MB (beats 5.17%)  
+**Submitted:** 2026-08-08T03:11:32.289Z  
 
 ```cpp
 class Solution {
 public:
-    void rec(int i,vector<int>nums,set<vector<int>>& st,vector<int>row)
+    void rec(int i,vector<int>nums,vector<vector<int>>& ans,vector<int>row)
     {
         if(i >= nums.size())
         {
-            st.insert(row);
+            ans.push_back(row);
             return;
         }
         row.push_back(nums[i]);
-        rec(i + 1,nums,st,row);
+        rec(i + 1,nums,ans,row);
         row.pop_back();
-        rec(i + 1,nums,st,row);
+        while(i + 1 < nums.size() && nums[i] == nums[i + 1]) i++;
+        rec(i + 1,nums,ans,row);
     }
     vector<vector<int>> subsetsWithDup(vector<int>& nums) {
-        sort(nums.begin(),nums.end());
-        set<vector<int>>st;
+        vector<vector<int>>ans;
         vector<int>row;
-        rec(0,nums,st,row);
-        vector<vector<int>>ans(st.begin(),st.end());
+        sort(nums.begin(),nums.end());
+        rec(0,nums,ans,row);
         return ans;
     }
 };
