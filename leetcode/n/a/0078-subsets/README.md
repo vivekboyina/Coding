@@ -38,24 +38,28 @@ Output: [[],[0]]
 
 **Language:** C++  
 **Runtime:** 0 ms (beats 100.00%)  
-**Memory:** 9.8 MB (beats 82.94%)  
-**Submitted:** 2026-08-03T10:35:07.031Z  
+**Memory:** 16.8 MB (beats 5.01%)  
+**Submitted:** 2026-08-08T02:53:17.044Z  
 
 ```cpp
 class Solution {
 public:
+    void rec(int i,vector<int>nums,vector<vector<int>>& ans,vector<int>row)
+    {
+        if(i >= nums.size())
+        {
+            ans.push_back(row);
+            return;
+        }
+        row.push_back(nums[i]);
+        rec(i + 1,nums,ans,row);
+        row.pop_back();
+        rec(i + 1,nums,ans,row);
+    }
     vector<vector<int>> subsets(vector<int>& nums) {
         vector<vector<int>>ans;
-        int n = nums.size();
-        for(int i = 0; i < (1 << n); i++)
-        {
-            vector<int>sub;
-            for(int j = 0; j < n; j++)
-            {
-                if(i & (1 << j)) sub.push_back(nums[j]);
-            }
-            ans.push_back(sub);
-        }
+        vector<int>row;
+        rec(0,nums,ans,row);
         return ans;
     }
 };
