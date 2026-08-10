@@ -5,7 +5,6 @@ public:
         string ans = "";
         const int n = nr*2 - 2;
         int k = nr*2 - 2;
-        int p = 0;
         for(int i = 0; i < nr; i++)
         {
             if(i > 0 && i < nr - 1)
