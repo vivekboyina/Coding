@@ -42,18 +42,18 @@ Output: 0
 ## Solution
 
 **Language:** C++  
-**Runtime:** 0 ms  
-**Memory:** 7.9 MB  
-**Submitted:** 2026-08-11T09:10:59.856Z  
+**Runtime:** 194 ms (beats 45.44%)  
+**Memory:** 12.7 MB (beats 38.40%)  
+**Submitted:** 2026-08-11T09:12:40.809Z  
 
 ```cpp
 class Solution {
 public:
     void sieve(int n,vector<bool>& prms)
     {
-        for(int i = 2; i*i <= n; i++)
+        for(int i = 2; i*i < n; i++)
         {
-            if(prms[i] == true) for(int j = i*i; j <= n; j+=i) prms[j] = false;
+            if(prms[i] == true) for(int j = i*i; j < n; j+=i) prms[j] = false;
         }
     }
     int countPrimes(int n) {
