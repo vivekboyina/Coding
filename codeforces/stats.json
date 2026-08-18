@@ -1,15 +1,19 @@
 {
   "codeforces": {
-    "solved": 1,
-    "newbie": 1,
-    "specialist": 0,
     "expert": 0,
     "master": 0,
+    "newbie": 1,
     "shas": {
       "2254_A - Riptide": {
-        "rating": 800,
-        "category": "newbie"
+        "category": "newbie",
+        "rating": 800
+      },
+      "1294_C - Product of Three Numbers": {
+        "rating": 1300,
+        "category": "specialist"
       }
-    }
+    },
+    "solved": 2,
+    "specialist": 1
   }
 }
