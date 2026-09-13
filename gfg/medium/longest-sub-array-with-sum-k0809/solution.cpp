@@ -1,31 +1,17 @@
 class Solution {
   public:
     int longestSubarray(vector<int>& arr, int k) {
-        unordered_map<int, int> firstIndex;
-    
-    int prefixSum = 0;
-    int maxLen = 0;
-
-    for (int i = 0; i < arr.size(); i++) {
-        prefixSum += arr[i];
-
-        // Subarray from index 0 to i
-        if (prefixSum == k) {
-            maxLen = i + 1;
+        unordered_map<int,int>mp;
+        int sum = 0;
+        int ans = 0;
+        int n = arr.size();
+        for(int i = 0; i < n; i++)
+        {
+            sum+=arr[i];
+            if(sum == k) ans = i + 1;
+            if(mp.find(sum - k) != mp.end()) ans = max(ans,i - mp[sum - k]);
+            if(mp.find(sum) == mp.end()) mp[sum] = i;
         }
-
-        // Look for an earlier prefix sum
-        if (firstIndex.find(prefixSum - k) != firstIndex.end()) {
-            int len = i - firstIndex[prefixSum - k];
-            maxLen = max(maxLen, len);
-        }
-
-        // Store only the first occurrence
-        if (firstIndex.find(prefixSum) == firstIndex.end()) {
-            firstIndex[prefixSum] = i;
-        }
-    }
-
-    return maxLen;
+        return ans;
     }
 };
