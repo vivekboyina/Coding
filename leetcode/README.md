@@ -9,4 +9,5 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 |  |
 | ------- |
 | [0338-counting-bits](https://github.com/vivekboyina/Coding/tree/master/LeetCode/0338-counting-bits) |
+| [2323-minimum-bit-flips-to-convert-number](https://github.com/vivekboyina/Coding/tree/master/LeetCode/2323-minimum-bit-flips-to-convert-number) |
 <!---LeetCode Topics End-->
