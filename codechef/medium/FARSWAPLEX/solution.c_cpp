@@ -1,0 +1,41 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+	// your code goes here
+	ios::sync_with_stdio(false);
+	cin.tie(nullptr);
+	int t;
+	cin >> t;
+	while(t--)
+	{
+	    int n;
+	    cin >> n;
+	    vector<int>cc(n);
+	    for(int i = 0; i < n; i++) cin >> cc[i];
+	    int j;
+	    for(int i = 1; i < n - 1; i++)
+	    {
+	        if(cc[i] - cc[i + 1] > 1)
+	        {
+	            j = i;
+	            while(j < n - 1 && cc[j] - cc[j + 1] > 1)
+	            {
+	                swap(cc[j],cc[j + 1]);
+	                j++;
+	            }
+	        }
+	        if(cc[i - 1] - cc[i] > 1)
+	        {
+	            j = i;
+	            while(j > 0 && cc[j - 1] - cc[j] > 1)
+	            {
+	                swap(cc[j],cc[j - 1]);
+	                j--;
+	            }
+	        }
+	    }
+	    for(int i : cc) cout << i << " ";
+	    cout << endl;
+	}
+}
