@@ -38,9 +38,9 @@ Explanation: The first 6 sub-arrays of size 3 have averages greater than 5. Note
 ## Solution
 
 **Language:** C++  
-**Runtime:** 0 ms  
-**Memory:** 8.3 MB  
-**Submitted:** 2026-09-16T13:09:29.824Z  
+**Runtime:** 0 ms (beats 100.00%)  
+**Memory:** 59.3 MB (beats 37.51%)  
+**Submitted:** 2026-09-16T13:09:48.110Z  
 
 ```cpp
 class Solution {
@@ -50,12 +50,11 @@ public:
         int n = arr.size();
         for(int i = 0; i < k; i++) sum+=arr[i];
         int ans = 0;
-        if(sum/k > th) ans+=1;
+        if(sum/k >= th) ans+=1;
         for(int i = k; i < n; i++)
         {
             sum-=arr[i - k];
             sum+=arr[i];
-            cout << sum/k << endl;
             if((sum/k) >= th) ans+=1;
         }
         return ans;
