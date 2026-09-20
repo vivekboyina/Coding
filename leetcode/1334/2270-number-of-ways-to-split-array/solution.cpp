@@ -17,13 +17,7 @@ public:
             sum+=nums[i];
             sf[i] = sum;
         }
-        for(int i = 0; i < n - 1; i++)
-        {
-            if(pf[i] >= sf[i + 1])
-            {
-                ans+=1;
-            }
-        }
+        for(int i = 0; i < n - 1; i++) if(pf[i] >= sf[i + 1]) ans+=1;
         return ans;
     }
 };
