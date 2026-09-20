@@ -51,9 +51,9 @@ There are two valid splits in nums:
 ## Solution
 
 **Language:** C++  
-**Runtime:** 8 ms (beats 19.41%)  
-**Memory:** 104 MB (beats 14.64%)  
-**Submitted:** 2026-09-20T01:18:29.884Z  
+**Runtime:** 10 ms (beats 12.30%)  
+**Memory:** 103.9 MB (beats 14.64%)  
+**Submitted:** 2026-09-20T01:18:49.505Z  
 
 ```cpp
 class Solution {
@@ -75,13 +75,7 @@ public:
             sum+=nums[i];
             sf[i] = sum;
         }
-        for(int i = 0; i < n - 1; i++)
-        {
-            if(pf[i] >= sf[i + 1])
-            {
-                ans+=1;
-            }
-        }
+        for(int i = 0; i < n - 1; i++) if(pf[i] >= sf[i + 1]) ans+=1;
         return ans;
     }
 };
