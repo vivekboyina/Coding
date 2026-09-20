@@ -10,11 +10,17 @@ public:
             sum+=nums[i];
             pf[i] = sum;
         }
+        vector<long long>sf(n);
+        sum = 0;
+        for(int i = n - 1; i >= 0; i--)
+        {
+            sum+=nums[i];
+            sf[i] = sum;
+        }
         for(int i = 0; i < n - 1; i++)
         {
-            if(pf[i] > pf[i + 1] - pf[i])
+            if(pf[i] >= sf[i + 1])
             {
-                cout << i << endl;
                 ans+=1;
             }
         }
