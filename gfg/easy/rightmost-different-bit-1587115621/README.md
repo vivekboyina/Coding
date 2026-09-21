@@ -1,4 +1,4 @@
-# Rightmost different bit
+# Rightmost Different Bit
 
 ![Difficulty](https://img.shields.io/badge/Difficulty-Easy-green)
 
@@ -27,29 +27,25 @@ Output: 2
 Explanation: Binary representation of the given numbers are: 29 in binary is 11101, 15 in binary is 01111. The 2nd bit from the right is different.
 ```
 
- **Constraints:** 
-0 ≤ m, n ≤ 109
-
 ## Solution
 
 **Language:** C++  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-07-30T07:18:32.718Z  
+**Submitted:** 2026-09-21T04:48:09.610Z  
 
 ```cpp
 class Solution {
   public:
     int posOfRightMostDiffBit(int m, int n) {
-        //  code here
         if(m == n) return -1;
-        int mn = m ^ n;
-        int ans = 0;
-        while(mn)
+        int ans = 1;
+        while(m > 0 && n > 0)
         {
+            if((m & 1) ^ (n & 1) == 1) return ans;
+            m = m >> 1;
+            n = n >> 1;
             ans+=1;
-            if(mn & 1 == 1) break;
-            mn = mn >> 1;
         }
         return ans;
     }
