@@ -27,29 +27,26 @@ Output: 1
 Explanation: Binary representation of  1 is 1, the first set bit from the right side is at position 1.
 ```
 
- **Constraints:** 
-1 ≤ n ≤ 109
-
 ## Solution
 
 **Language:** C++  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-07-30T07:08:43.706Z  
+**Submitted:** 2026-09-21T04:51:56.106Z  
 
 ```cpp
 class Solution {
   public:
     int getFirstSetBit(int n) {
         // code here
-        int ans = 0;
+        int ans = 1;
         while(n)
         {
+            if((n & 1) ^ 1 == 0) return ans;
             ans+=1;
-            if(n & 1 == 1) break;
             n = n >> 1;
         }
-        return ans;
+        return 0;
     }
 };
 ```
