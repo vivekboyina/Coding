@@ -58,7 +58,7 @@ Using 4 different numbers in the range [1,9], the smallest sum we can get is 1+2
 **Language:** C++  
 **Runtime:** 0 ms (beats 100.00%)  
 **Memory:** 8.9 MB (beats 40.03%)  
-**Submitted:** 2026-09-23T14:11:29.330Z  
+**Submitted:** 2026-09-23T14:11:57.438Z  
 
 ```cpp
 class Solution {
