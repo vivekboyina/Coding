@@ -52,36 +52,34 @@ Explanation: The only possible triplet sums up to 0.
 ## Solution
 
 **Language:** C++  
-**Runtime:** 50 ms (beats 47.56%)  
-**Memory:** 29.2 MB (beats 30.54%)  
-**Submitted:** 2026-07-11T15:30:07.351Z  
+**Runtime:** 0 ms  
+**Memory:** 8.2 MB  
+**Submitted:** 2026-09-25T10:35:30.327Z  
 
 ```cpp
 class Solution {
 public:
     vector<vector<int>> threeSum(vector<int>& nums) {
-        vector<vector<int>>ans;
-        int n = nums.size();
         sort(nums.begin(),nums.end());
-        for(int i = 0; i < n; i++)
+        int l,r;
+        int n = nums.size();
+        int sum = 0;
+        vector<vector<int>>ans;
+        for(int i = 0; i < n - 2; i++)
         {
             if(i > 0 && nums[i] == nums[i - 1]) continue;
-            int l = i + 1;
-            int r = n - 1;
-            long long sum;
+            l = i + 1;
+            r = n - 1;
             while(l < r)
             {
                 sum = nums[i] + nums[l] + nums[r];
                 if(sum > 0) r--;
-                else if(sum < 0) l++;
-                else
+                else if(sum == 0)
                 {
                     ans.push_back({nums[i],nums[l],nums[r]});
-                    l++;
-                    r--;
-                    while(l < r && nums[l - 1] == nums[l]) l++;
-                    while(l < r && nums[r + 1] == nums[r]) r--;
+                    break;
                 }
+                else l++;
             }
         }
         return ans;
