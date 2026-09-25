@@ -21,8 +21,8 @@ public:
                     ans.push_back({nums[i],nums[l],nums[r]});
                     l++;
                     r--;
-                    while(l > 0 && l < n && nums[l] == nums[l - 1]) l++;
-                    while(r < n - 1 && r >= 0 && nums[r] == nums[r + 1]) r--;
+                    while(l < r && nums[l] == nums[l - 1]) l++;
+                    while(l < r && nums[r] == nums[r + 1]) r--;
                 }
                 else l++;
             }
