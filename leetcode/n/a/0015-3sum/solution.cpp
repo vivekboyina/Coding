@@ -17,8 +17,12 @@ public:
                 if(sum > 0) r--;
                 else if(sum == 0)
                 {
+                    
                     ans.push_back({nums[i],nums[l],nums[r]});
-                    break;
+                    l++;
+                    r--;
+                    while(l > 0 && l < n && nums[l] == nums[l - 1]) l++;
+                    while(r < n - 1 && r >= 0 && nums[r] == nums[r + 1]) r--;
                 }
                 else l++;
             }
