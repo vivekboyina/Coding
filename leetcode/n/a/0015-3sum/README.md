@@ -52,9 +52,9 @@ Explanation: The only possible triplet sums up to 0.
 ## Solution
 
 **Language:** C++  
-**Runtime:** 49 ms (beats 47.69%)  
-**Memory:** 29.1 MB (beats 45.57%)  
-**Submitted:** 2026-09-25T10:40:04.408Z  
+**Runtime:** 0 ms  
+**Memory:** 8.5 MB  
+**Submitted:** 2026-09-25T10:40:42.395Z  
 
 ```cpp
 class Solution {
@@ -80,8 +80,8 @@ public:
                     ans.push_back({nums[i],nums[l],nums[r]});
                     l++;
                     r--;
-                    while(l > 0 && l < n && nums[l] == nums[l - 1]) l++;
-                    while(r < n - 1 && r >= 0 && nums[r] == nums[r + 1]) r--;
+                    while(l < r && nums[l] == nums[l - 1]) l++;
+                    while(l < r && nums[r] == nums[r + 1]) r--;
                 }
                 else l++;
             }
