@@ -41,9 +41,9 @@ Output: [[2,2,2,2]]
 ## Solution
 
 **Language:** C++  
-**Runtime:** 0 ms  
-**Memory:** 8.6 MB  
-**Submitted:** 2026-09-26T00:54:08.437Z  
+**Runtime:** 19 ms (beats 81.17%)  
+**Memory:** 17.4 MB (beats 87.47%)  
+**Submitted:** 2026-09-26T00:57:27.225Z  
 
 ```cpp
 class Solution {
@@ -51,7 +51,6 @@ public:
     vector<vector<int>> fourSum(vector<int>& nums, int t) {
         sort(nums.begin(),nums.end());
         vector<vector<int>>ans;
-        long long sum;
         int n = nums.size();
         if(n < 4) return ans;
         int l,r;
@@ -65,7 +64,7 @@ public:
                 r = n - 1;
                 while(l < r)
                 {
-                    sum = nums[l] + nums[r] + nums[i] + nums[j];
+                    long long sum = (long long)nums[l] + nums[r] + nums[i] + nums[j];
                     if(sum > t) r--;
                     else if(sum < t) l++;
                     else
