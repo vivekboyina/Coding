@@ -60,23 +60,39 @@ Note that because m = 0, there are no elements in nums1. The 0 is only there to 
 ## Solution
 
 **Language:** C++  
-**Runtime:** 0 ms (beats 100.00%)  
-**Memory:** 12.4 MB (beats 9.52%)  
-**Submitted:** 2026-07-10T15:00:23.019Z  
+**Runtime:** 3 ms (beats 2.27%)  
+**Memory:** 16.2 MB (beats 5.35%)  
+**Submitted:** 2026-09-28T04:20:33.020Z  
 
 ```cpp
 class Solution {
 public:
-    void merge(vector<int>& n1, int m, vector<int>& n2, int n) {
-        int i = m - 1;
-        int j = n - 1;
-        int k = m + n - 1;
-        while(i >= 0 && j >= 0)
+    void mer(vector<int>& vc,int l,int m,int h)
+    {
+        int n1 = m - l + 1,n2 = h - m;
+        vector<int>a(n1),b(n2);
+        for(int i = 0; i < n1; i++) a[i] = vc[l + i];
+        for(int i = 0; i < n2; i++) b[i] = vc[m + 1 + i];
+        int i = 0,j = 0,k = l;
+        while(i < n1 && j < n2)
         {
-            if(n1[i] > n2[j]) n1[k--] = n1[i--];
-            else n1[k--] = n2[j--];
+            if(a[i] < b[j]) vc[k++] = a[i++];
+            else vc[k++] = b[j++];
         }
-        while(j >= 0) n1[k--] = n2[j--];
+        while(i < n1) vc[k++] = a[i++];
+        while(j < n2) vc[k++] = b[j++];
+    }
+    void mergesort(vector<int>& vc,int l,int h)
+    {
+        if(l >= h) return;
+        int m = (l + h)/2;
+        mergesort(vc,l,m);
+        mergesort(vc,m + 1,h);
+        mer(vc,l,m,h);
+    }
+    void merge(vector<int>& n1, int m, vector<int>& n2, int n) {
+        for(int i = m; i < m + n; i++) n1[i] = n2[i - m];
+        mergesort(n1,0,m + n - 1);
     }
 };
 ```
