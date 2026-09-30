@@ -37,29 +37,30 @@ Output: [[],[0]]
 ## Solution
 
 **Language:** C++  
-**Runtime:** 4 ms (beats 7.89%)  
-**Memory:** 17.1 MB (beats 5.05%)  
-**Submitted:** 2026-09-28T08:42:32.978Z  
+**Runtime:** 1 ms (beats 42.98%)  
+**Memory:** 9.9 MB (beats 59.75%)  
+**Submitted:** 2026-09-30T00:46:39.839Z  
 
 ```cpp
 class Solution {
 public:
-    void rec(int i,vector<int>nums,vector<vector<int>>& ans,vector<int>row)
+    void rec(vector<int>& nums,vector<int>& ds,vector<vector<int>>& ans,int i)
     {
-        if(i >= nums.size())
+        if(i == nums.size())
         {
-            ans.push_back(row);
+            ans.push_back(ds);
             return;
         }
-        row.push_back(nums[i]);
-        rec(i + 1,nums,ans,row);
-        row.pop_back();
-        rec(i + 1,nums,ans,row);
+        ds.push_back(nums[i]);
+        rec(nums,ds,ans,i + 1);
+        ds.pop_back();
+        rec(nums,ds,ans,i + 1);
     }
     vector<vector<int>> subsets(vector<int>& nums) {
+        int n = nums.size();
         vector<vector<int>>ans;
-        vector<int>row;
-        rec(0,nums,ans,row);
+        vector<int>ds;
+        rec(nums,ds,ans,0);
         return ans;
     }
 };
