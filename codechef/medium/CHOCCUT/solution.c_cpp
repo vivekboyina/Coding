@@ -1,0 +1,15 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+	// your code goes here
+	int t;
+	cin >> t;
+	while(t--)
+	{
+	    int m,n;
+	    cin >> m >> n;
+	    int ch = m*n;
+	    ch % 2 == 0 ? cout << "YES\n" : cout << "NO\n";
+	}
+}
