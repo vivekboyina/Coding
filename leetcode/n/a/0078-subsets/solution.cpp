@@ -1,21 +1,22 @@
 class Solution {
 public:
-    void rec(int i,vector<int>nums,vector<vector<int>>& ans,vector<int>row)
+    void rec(vector<int>& nums,vector<int>& ds,vector<vector<int>>& ans,int i)
     {
-        if(i >= nums.size())
+        if(i == nums.size())
         {
-            ans.push_back(row);
+            ans.push_back(ds);
             return;
         }
-        row.push_back(nums[i]);
-        rec(i + 1,nums,ans,row);
-        row.pop_back();
-        rec(i + 1,nums,ans,row);
+        ds.push_back(nums[i]);
+        rec(nums,ds,ans,i + 1);
+        ds.pop_back();
+        rec(nums,ds,ans,i + 1);
     }
     vector<vector<int>> subsets(vector<int>& nums) {
+        int n = nums.size();
         vector<vector<int>>ans;
-        vector<int>row;
-        rec(0,nums,ans,row);
+        vector<int>ds;
+        rec(nums,ds,ans,0);
         return ans;
     }
 };
