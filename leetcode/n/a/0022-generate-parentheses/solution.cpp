@@ -1,6 +1,6 @@
 class Solution {
 public:
-    void rec(int n,string s,int op,int cl,vector<string>& ans)
+    void rec(int n,int op,int cl,string& s,vector<string>& ans)
     {
         if(op == n && cl == n)
         {
@@ -9,20 +9,27 @@ public:
         }
         if(op < n)
         {
-            s.push_back('(');
-            rec(n,s,op + 1,cl,ans);
+            s+='(';
+            op++;
+            rec(n,op,cl,s,ans);
             s.pop_back();
+            op--;
         }
         if(op > cl)
         {
-            s.push_back(')');
-            rec(n,s,op,cl + 1,ans);
+            s+=')';
+            cl++;
+            rec(n,op,cl,s,ans);
             s.pop_back();
+            cl--;
         }
     }
     vector<string> generateParenthesis(int n) {
+        string s = "";
         vector<string>ans;
-        rec(n,"",0,0,ans);
+        int op = 0;
+        int cl = 0;
+        rec(n,op,cl,s,ans);
         return ans;
     }
 };
