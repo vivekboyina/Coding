@@ -1,0 +1,21 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+	// your code goes here
+	int t;
+	cin >> t;
+	while(t--)
+	{
+	    int n,m,k;
+	    cin >> n >> m >> k;
+	    vector<int>cc(m);
+	    for(int i = 0; i < m; i++) cin >> cc[i];
+	    vector<bool>usd(n,false);
+	    for(int i = 0; i < m; i++) usd[cc[i] - 1] = true;
+	    vector<int>ans;
+	    for(int i = 0; i < n; i++) if(usd[i] == false) ans.push_back(i + 1);
+	    for(int i = 0; i < k; i++) cout << ans[i] << " ";
+	    cout << endl;
+	}
+}
