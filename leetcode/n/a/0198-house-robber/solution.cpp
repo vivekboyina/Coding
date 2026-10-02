@@ -6,8 +6,8 @@ public:
         dp[0] = nums[0];
         for(int i = 1; i < n; i++)
         {
-            if(i == 1) dp[i] = max(nums[i - 1],nums[i]);
-            else dp[i] = max(nums[i] + dp[i - 2],dp[i - 1]);
+            if(i == 1) dp[1] = max(nums[0],nums[1]);
+            else dp[i] = max(dp[i - 1],nums[i] + dp[i - 2]);
         }
         return dp[n - 1];
     }
