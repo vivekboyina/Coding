@@ -72,9 +72,9 @@ The test cases are generated so that the answer fits in a  **32-bit**  integer.
 ## Solution
 
 **Language:** C++  
-**Runtime:** 0 ms  
-**Memory:** 7.9 MB  
-**Submitted:** 2026-10-03T06:01:27.656Z  
+**Runtime:** 7 ms (beats 4.08%)  
+**Memory:** 8.7 MB (beats 46.98%)  
+**Submitted:** 2026-10-03T07:39:11.714Z  
 
 ```cpp
 class Solution {
@@ -82,23 +82,29 @@ public:
     int numDecodings(string s) {
         if(s[0] == '0') return 0;
         int n = s.length();
-        int ans = 1;
+        vector<int>dp(n,0);
+        int k;
+        dp[0] = 1;
         for(int i = 1; i < n; i++)
         {
-            if(((s[i - 1] - '0') > 2 || s[i - 1] == '0') && s[i] == '0') return 0;
-            else if(s[i] == '0') ans = 0;
-        }
-        int k;
-        for(int i = 0; i < n - 1; i++)
-        {
-            k = (s[i] - '0')*10 + (s[i + 1] - '0');
-            if(k < 27 && (i + 1 == n - 1 || (i + 2 < n && s[i + 2] != '0')))
+            k = (s[i - 1] - '0')*10 + (s[i] - '0');
+            if(k < 27)
             {
-                cout << i << endl;
-                ans+=1;
+                if(k == 0) return 0;
+                else if(k < 10) dp[i] = dp[i - 1];
+                else if(k % 10 == 0)
+                {
+                    if(i > 1) dp[i] = dp[i - 2];
+                    else dp[i] = 1;
+                }
+                else if(i > 1) dp[i] = dp[i - 2] + dp[i - 1];
+                else dp[i] = dp[i - 1] + 1;
             }
+            else if(k % 10 == 0) return 0;
+            else dp[i] = dp[i - 1];
         }
-        return ans;
+        for(int i : dp) cout << i << " ";
+        return dp[n - 1];
     }
 };
 ```
