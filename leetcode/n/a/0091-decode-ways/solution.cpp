@@ -24,7 +24,6 @@ public:
             else if(k % 10 == 0) return 0;
             else dp[i] = dp[i - 1];
         }
-        for(int i : dp) cout << i << " ";
         return dp[n - 1];
     }
 };
