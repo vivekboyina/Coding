@@ -72,9 +72,9 @@ The test cases are generated so that the answer fits in a  **32-bit**  integer.
 ## Solution
 
 **Language:** C++  
-**Runtime:** 7 ms (beats 4.08%)  
-**Memory:** 8.7 MB (beats 46.98%)  
-**Submitted:** 2026-10-03T07:39:11.714Z  
+**Runtime:** 1 ms (beats 24.98%)  
+**Memory:** 8.5 MB (beats 78.29%)  
+**Submitted:** 2026-10-05T09:19:55.634Z  
 
 ```cpp
 class Solution {
@@ -103,7 +103,6 @@ public:
             else if(k % 10 == 0) return 0;
             else dp[i] = dp[i - 1];
         }
-        for(int i : dp) cout << i << " ";
         return dp[n - 1];
     }
 };
