@@ -1,0 +1,28 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+	// your code goes here
+	int t;
+	cin >> t;
+	while(t--)
+	{
+	    int n;
+	    cin >> n;
+	    string s;
+	    cin >> s;
+	    int u = 0;
+	    int d = 0;
+	    int r = 0;
+	    int l = 0;
+	    for(char i : s)
+	    {
+	        if(i == 'U') u+=1;
+	        else if(i == 'D') d+=1;
+	        else if(i == 'L') l+=1;
+	        else r+=1;
+	    }
+	    if((abs(u - d) == 2 && abs(l - r) == 0) || abs(u - d) == 0 && abs(l - r) == 2) cout << "YES\n";
+	    else cout << "NO\n";
+	}
+}
