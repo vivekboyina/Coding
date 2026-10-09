@@ -72,9 +72,9 @@ The test cases are generated so that the answer fits in a  **32-bit**  integer.
 ## Solution
 
 **Language:** C++  
-**Runtime:** 1 ms (beats 24.98%)  
-**Memory:** 8.5 MB (beats 78.29%)  
-**Submitted:** 2026-10-05T09:19:55.634Z  
+**Runtime:** 0 ms (beats 100.00%)  
+**Memory:** 8.5 MB (beats 86.17%)  
+**Submitted:** 2026-10-09T05:22:11.635Z  
 
 ```cpp
 class Solution {
