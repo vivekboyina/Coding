@@ -45,9 +45,9 @@ Return an integer denoting the score of `n`.
 ## Solution
 
 **Language:** C++  
-**Runtime:** 3 ms (beats 13.95%)  
-**Memory:** 9.1 MB (beats 36.71%)  
-**Submitted:** 2026-10-21T15:49:53.075Z  
+**Runtime:** 0 ms (beats 100.00%)  
+**Memory:** 9.2 MB (beats 29.86%)  
+**Submitted:** 2026-10-22T15:57:19.112Z  
 
 ```cpp
 class Solution {
