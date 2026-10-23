@@ -58,9 +58,9 @@ Return an integer array `[r, c]` representing the  **row and column indices**  o
 ## Solution
 
 **Language:** C++  
-**Runtime:** 56 ms (beats 44.64%)  
-**Memory:** 153.9 MB (beats 22.05%)  
-**Submitted:** 2026-10-20T15:45:31.038Z  
+**Runtime:** 64 ms (beats 29.61%)  
+**Memory:** 153.7 MB (beats 29.37%)  
+**Submitted:** 2026-10-23T16:17:01.503Z  
 
 ```cpp
 class Solution {
