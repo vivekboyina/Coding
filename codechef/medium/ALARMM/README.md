@@ -70,7 +70,7 @@ Output
 **Language:** C++  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-10-28T15:33:28.295Z  
+**Submitted:** 2026-10-28T15:35:12.919Z  
 
 ```cpp
 #include <bits/stdc++.h>
@@ -113,9 +113,9 @@ int main() {
                 if(s[j] == '1') sv[j] = i;
             }
         }
-        unordered_set<int,int>st;
+        unordered_set<int>st;
         for(int i : sv) if(i != -1) st.insert(i);
-        cout << st.size();
+        cout << st.size() << endl;
     }
 }
 ```
