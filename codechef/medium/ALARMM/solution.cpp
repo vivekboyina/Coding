@@ -38,8 +38,8 @@ int main() {
                 if(s[j] == '1') sv[j] = i;
             }
         }
-        unordered_set<int,int>st;
+        unordered_set<int>st;
         for(int i : sv) if(i != -1) st.insert(i);
-        cout << st.size();
+        cout << st.size() << endl;
     }
 }
