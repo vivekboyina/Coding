@@ -67,12 +67,12 @@ Output
 
 ## Solution
 
-**Language:** C++  
+**Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-10-28T15:32:46.267Z  
+**Submitted:** 2026-10-28T15:34:09.621Z  
 
-```cpp
+```c_cpp
 #include <bits/stdc++.h>
 using namespace std;
 int main() {
@@ -113,9 +113,9 @@ int main() {
                 if(s[j] == '1') sv[j] = i;
             }
         }
-        unordered_set<int,int>st;
+        unordered_set<int>st;
         for(int i : sv) if(i != -1) st.insert(i);
-        cout << st.size();
+        cout << st.size() << endl;
     }
 }
 ```
