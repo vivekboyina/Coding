@@ -64,9 +64,9 @@ A  **set bit**  refers to a bit in the binary representation of a number that ha
 ## Solution
 
 **Language:** C++  
-**Runtime:** 0 ms (beats 100.00%)  
-**Memory:** 8.6 MB (beats 34.64%)  
-**Submitted:** 2026-10-27T15:40:24.635Z  
+**Runtime:** 1 ms (beats 30.98%)  
+**Memory:** 8.4 MB (beats 97.86%)  
+**Submitted:** 2026-10-28T17:32:47.949Z  
 
 ```cpp
 class Solution {
