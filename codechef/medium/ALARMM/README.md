@@ -67,12 +67,12 @@ Output
 
 ## Solution
 
-**Language:** C++  
+**Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-10-28T15:17:34.974Z  
+**Submitted:** 2026-10-28T15:19:10.638Z  
 
-```cpp
+```c_cpp
 #include <bits/stdc++.h>
 using namespace std;
 int main() {
@@ -85,8 +85,37 @@ int main() {
         string s;
         cin >> s;
         int dan = 0;
-        for(char i : s) if(i == '1') dan+=1;
-        
+        int ans = 0;
+        int ls = -1;
+        for(int i = 0; i < n; i++)
+        {
+            if(s[i] == '1')
+            {
+                dan+=1;
+                ls = i;
+            }
+        }
+        if(dan == 0)
+        {
+            cout << ans << endl;
+            continue;
+        }
+        if(k == 0 || dan == 1)
+        {
+            cout << dan << endl;
+            continue;
+        }
+        vector<int>sv(n,-1);
+        for(int i = 0; i < n; i++)
+        {
+            for(int j = max(0,i - k); j <= i; j++)
+            {
+                if(s[j] == '1') sv[j] = i;
+            }
+        }
+        unordered_set<int,int>st;
+        for(int i : sv) if(i != -1) st.insert(i);
+        cout << st.size();
     }
 }
 ```
