@@ -68,7 +68,7 @@ Output
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-10-28T15:39:06.403Z  
+**Submitted:** 2026-10-28T16:04:20.619Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -76,7 +76,22 @@ using namespace std;
 
 int main() {
 	// your code goes here
-
+	int t;
+	cin >> t;
+	while(t--)
+	{
+	    int n;
+	    cin >> n;
+	    vector<int>cc(n);
+	    for(int i = 0; i < n; i++) cin >> cc[i];
+	    unordered_map<pair<int,int>,int>mp;
+	    int ans = 0;
+	    for(int i = 0; i < n - 1; i++)
+	    {
+	        if(cc[i] == cc[i + 1]) ans+=1;
+	        
+	    }
+	}
 }
 
 ```
