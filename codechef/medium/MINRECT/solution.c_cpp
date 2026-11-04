@@ -19,7 +19,7 @@ int main() {
 	        {
 	            if(arr[i][j] == '1')
 	            {
-	                cout << i << " " << j << endl;
+	                cout << i << ""
 	                st.insert(i);
 	                if(r1 == -1) r1 = i + 1;
 	                else if(r1 <= i) r2 = max(i + 1,r2);
@@ -27,7 +27,7 @@ int main() {
 	            }
 	            
 	        }
-	       // cout << r1 << " " << r2 << endl;
+	        cout << r1 << " " << r2 << endl;
 	    }
 	    
 	    int len = 1,brd = 1;
