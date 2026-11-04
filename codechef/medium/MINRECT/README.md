@@ -72,12 +72,12 @@ Output
 
 ## Solution
 
-**Language:** c_cpp  
+**Language:** C++  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-11-04T15:41:17.262Z  
+**Submitted:** 2026-11-04T15:40:00.129Z  
 
-```c_cpp
+```cpp
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -99,17 +99,13 @@ int main() {
 	        {
 	            if(arr[i][j] == '1')
 	            {
-	                cout << i << ""
 	                st.insert(i);
 	                if(r1 == -1) r1 = i + 1;
 	                else if(r1 <= i) r2 = max(i + 1,r2);
-	                
 	            }
-	            
 	        }
-	        cout << r1 << " " << r2 << endl;
 	    }
-	    
+	    cout << r1 << " " << r2 << endl;
 	    int len = 1,brd = 1;
 	    len = max(r2 - r1 + 1,len);
 	    int l = INT_MAX,r = INT_MIN;
