@@ -41,7 +41,7 @@ int main() {
 	        }
 	    }
         brd = max(r - l + 1,brd);
-        // cout << len << " " << brd << endl;
+        cout << len << " " << brd << endl;
 	    cout << len*brd << endl;
 	}
 }
