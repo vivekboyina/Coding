@@ -75,7 +75,7 @@ Output
 **Language:** C++  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-11-04T15:39:19.490Z  
+**Submitted:** 2026-11-04T15:37:55.897Z  
 
 ```cpp
 #include <bits/stdc++.h>
@@ -121,7 +121,7 @@ int main() {
 	        }
 	    }
         brd = max(r - l + 1,brd);
-        // cout << len << " " << brd << endl;
+        cout << len << " " << brd << endl;
 	    cout << len*brd << endl;
 	}
 }
