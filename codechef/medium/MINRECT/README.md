@@ -72,12 +72,12 @@ Output
 
 ## Solution
 
-**Language:** c_cpp  
+**Language:** C++  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-11-04T15:42:48.096Z  
+**Submitted:** 2026-11-04T15:01:46.329Z  
 
-```c_cpp
+```cpp
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -91,25 +91,6 @@ int main() {
 	    cin >> n >> m;
 	    vector<string>arr(n);
 	    for(int i = 0; i < n; i++) cin >> arr[i];
-	    int r1 = -1,r2 = -1;
-	    int l = INT_MAX,r = INT_MIN;
-	    for(int i = 0; i < n; i++)
-	    {
-	        for(int j = 0; j < m; j++)
-	        {
-	            if(arr[i][j] == '1')
-	            {
-	                if(r1 == -1) r1 = i + 1;
-	                else if(r1 <= i) r2 = max(i + 1,r2);
-	                l = min(l,j + 1);
-	                r = max(r,j + 1);
-	            }
-	        }
-	    }
-	    int len = 1,brd = 1;
-	    len = max(r2 - r1 + 1,len);
-        brd = max(r - l + 1,brd);
-	    cout << len*brd << endl;
 	}
 }
 
