@@ -72,12 +72,12 @@ Output
 
 ## Solution
 
-**Language:** C++  
+**Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-11-04T15:37:17.178Z  
+**Submitted:** 2026-11-04T15:38:10.219Z  
 
-```cpp
+```c_cpp
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -121,7 +121,7 @@ int main() {
 	        }
 	    }
         brd = max(r - l + 1,brd);
-        cout << len << " " << brd << endl;
+        // cout << len << " " << brd << endl;
 	    cout << len*brd << endl;
 	}
 }
