@@ -12,36 +12,40 @@ int main() {
 	    vector<string>arr(n);
 	    for(int i = 0; i < n; i++) cin >> arr[i];
 	    int r1 = -1,r2 = -1;
-	    unordered_set<int>st;
 	    for(int i = 0; i < n; i++)
 	    {
 	        for(int j = 0; j < m; j++)
 	        {
 	            if(arr[i][j] == '1')
 	            {
-	                st.insert(i);
 	                if(r1 == -1) r1 = i + 1;
 	                else if(r1 <= i) r2 = max(i + 1,r2);
 	            }
 	        }
 	    }
-	    cout << r1 << " " << r2 << endl;
 	    int len = 1,brd = 1;
 	    len = max(r2 - r1 + 1,len);
 	    int l = INT_MAX,r = INT_MIN;
-	    for(auto i : st)
+	    for(int i = 0; i < m; i++)
 	    {
-	        for(int j = 0; j < m; j++)
+	        if(arr[r1 - 1][i] == '1')
 	        {
-	            if(arr[i][j] == '1')
+	            l = min(l,i + 1);
+	            r = max(r,i + 1);
+	        }
+	    }
+	    if(r2 != -1)
+	    {
+	        for(int i = 0; i < m; i++)
+	        {
+	            if(arr[r2 - 1][i] == '1')
 	            {
-	                l = min(l,j + 1);
-	                r = max(r,j + 1);
+	                l = min(l,i + 1);
+	                r = max(r,i + 1);
 	            }
 	        }
 	    }
         brd = max(r - l + 1,brd);
-        // cout << len << " " << brd << endl;
 	    cout << len*brd << endl;
 	}
 }
