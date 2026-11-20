@@ -48,9 +48,9 @@ Using a single operation, 25 gets divided by 5 and `nums` becomes `[5, 7]`.
 ## Solution
 
 **Language:** C++  
-**Runtime:** 4 ms  
-**Memory:** 12.7 MB  
-**Submitted:** 2026-08-25T09:31:53.628Z  
+**Runtime:** 8 ms (beats 93.27%)  
+**Memory:** 147.3 MB (beats 33.17%)  
+**Submitted:** 2026-08-25T09:31:58.974Z  
 
 ```cpp
 // #define i long long
