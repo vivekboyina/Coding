@@ -52,8 +52,8 @@ Output: false
 
 **Language:** C++  
 **Runtime:** 0 ms  
-**Memory:** 8.6 MB  
-**Submitted:** 2026-08-15T10:39:31.543Z  
+**Memory:** 8.5 MB  
+**Submitted:** 2026-08-15T10:39:17.538Z  
 
 ```cpp
 class Solution {
@@ -62,7 +62,7 @@ public:
     bool ans = false;
     void rec(int i,int j,int in,vector<vector<char>>& brd,string s)
     {
-        cout << i << " " << j << " " << in << endl;
+        cout << i << " " << j << endl;
         if(in == s.length() - 1 && brd[i][j] == s[in])
         {
             ans = true;
