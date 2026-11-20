@@ -15,11 +15,12 @@ public:
         int sum;
         for(int i = 0; i < n; i++)
         {
-            vector<int>row;
+            if(i > 0 && nums[i] == nums[i - 1]) i++;
             j = 0;
             k = n - 1;
-            while(j < k)
+            while(i < n && j < k)
             {
+                vector<int>row;
                 if(j == i)
                 {
                     j++;
@@ -30,7 +31,11 @@ public:
                     k--;
                     continue;
                 }
-                cout << nums[i] << " " << nums[j] << " " << nums[k] << endl;
+                else if(j == k)
+                {
+                    j++;
+                    continue;
+                }
                 sum = nums[i] + nums[j] + nums[k];
                 if(sum == 0)
                 {
@@ -39,7 +44,8 @@ public:
                     row.push_back(nums[k]);
                     sort(row.begin(),row.end());
                     st.insert(row);
-                    break;
+                    j++;
+                    k--;
                 }
                 else if(sum > 0) k--;
                 else if(sum < 0) j++;
