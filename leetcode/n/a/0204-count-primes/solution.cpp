@@ -2,7 +2,7 @@ class Solution {
 public:
     void sieve(int n,vector<bool>& prms)
     {
-        for(int i = 2; i*i < n; i++)
+        for(int i = 2; i*i < n; i+=2)
         {
             if(prms[i] == true) for(int j = i*i; j < n; j+=i) prms[j] = false;
         }
