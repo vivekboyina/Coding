@@ -4,7 +4,7 @@ public:
     bool ans = false;
     void rec(int i,int j,int in,vector<vector<char>>& brd,string s)
     {
-        cout << i << " " << j << " " << in << endl;
+        cout << i << " " << j << endl;
         if(in == s.length() - 1 && brd[i][j] == s[in])
         {
             ans = true;
