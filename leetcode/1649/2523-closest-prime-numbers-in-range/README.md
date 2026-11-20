@@ -43,9 +43,9 @@ Explanation: There exists only one prime number in the given range, so the condi
 ## Solution
 
 **Language:** C++  
-**Runtime:** 3 ms  
-**Memory:** 8.1 MB  
-**Submitted:** 2026-08-25T10:25:28.053Z  
+**Runtime:** 7 ms  
+**Memory:** 8.3 MB  
+**Submitted:** 2026-08-25T10:25:43.189Z  
 
 ```cpp
 vector<bool>prm(1000001,true);
