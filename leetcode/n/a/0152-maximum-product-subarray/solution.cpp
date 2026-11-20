@@ -1,18 +1,69 @@
+/*
+ * @lc app=leetcode id=152 lang=cpp
+ *
+ * [152] Maximum Product Subarray
+ */
+
+// @lc code=start
 class Solution {
 public:
     int maxProduct(vector<int>& nums) {
-        int rl = 1;
-        int lr = 1;
-        int n = nums.size();
-        int ans = INT_MIN;
-        for(int i = 0; i < n; i++)
+        if(nums.size() == 1) return nums[0];
+        int res = INT_MIN;
+        for(int i : nums) res = max(i,res);
+        int a = 0,b = 0;
+        for(int i : nums)
         {
-            if(lr == 0) lr = 1;
-            if(rl == 0) rl = 1;
-            lr*=nums[i];
-            rl*=nums[n - i - 1];
-            ans = max({ans,lr,rl});
+            if(i == 0)
+            {
+                a = 0;
+                b = 0;
+            }
+            else if(a < 0)
+            {
+                if(b == 0) b = 1;
+                b*=i;
+                if(b < 0)
+                {
+                    a = b*a;
+                    b = 0;
+                }
+            }
+            else
+            {
+                if(a == 0) a = 1;
+                a*=i;
+            }
+            if(i != 0) res = max({b,a,res});
         }
-        return ans;
+        reverse(nums.begin(),nums.end());
+        a = 0,b = 0;
+        for(int i : nums)
+        {
+            if(i == 0)
+            {
+                a = 0;
+                b = 0;
+            }
+            else if(a < 0)
+            {
+                if(b == 0) b = 1;
+                b*=i;
+                if(b < 0)
+                {
+                    a = b*a;
+                    b = 0;
+                }
+            }
+            else
+            {
+                if(a == 0) a = 1;
+                a*=i;
+            }
+            if(i != 0) res = max({b,a,res});
+        }
+        return res;
     }
 };
+// @lc code=end
+
