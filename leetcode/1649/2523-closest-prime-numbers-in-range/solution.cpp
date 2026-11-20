@@ -3,9 +3,11 @@ class Solution {
 public:
     void prime()
     {
-        for(int i = 2; i*i <= 1000000; i+=2)
+        prm[0] = false;
+        prm[1] = false;
+        for(int i = 2; i*i <= 1000000; i++)
         {
-            if(prm[i]) for(int j = i*i; j <= 1000000; j+=i) prm[j] = false;
+            if(prm[i] == true) for(int j = i + i; j <= 1000000; j+=i) prm[j] = false;
         }
     }
     vector<int> closestPrimes(int st, int nd) {
@@ -25,10 +27,10 @@ public:
             else if(r == -1 && prm[i]) r = i;
             else if(prm[i])
             {
-                r = l;
-                l = i;
+                l = r;
+                r = i;
             }
-            if(l != -1 & r != -1 && abs(l - r) <= dis)
+            if(l != -1 & r != -1 && abs(l - r) < dis)
             {
                 dis = abs(l - r);
                 ans[0] = l;
