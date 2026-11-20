@@ -43,9 +43,9 @@ Explanation: There exists only one prime number in the given range, so the condi
 ## Solution
 
 **Language:** C++  
-**Runtime:** 0 ms  
-**Memory:** 8.2 MB  
-**Submitted:** 2026-08-25T10:16:58.744Z  
+**Runtime:** 3 ms  
+**Memory:** 8.1 MB  
+**Submitted:** 2026-08-25T10:25:28.053Z  
 
 ```cpp
 vector<bool>prm(1000001,true);
@@ -53,9 +53,11 @@ class Solution {
 public:
     void prime()
     {
-        for(int i = 2; i*i <= 1000000; i+=2)
+        prm[0] = false;
+        prm[1] = false;
+        for(int i = 2; i*i <= 1000000; i++)
         {
-            if(prm[i]) for(int j = i*i; j <= 1000000; j+=i) prm[j] = false;
+            if(prm[i] == true) for(int j = i + i; j <= 1000000; j+=i) prm[j] = false;
         }
     }
     vector<int> closestPrimes(int st, int nd) {
@@ -75,10 +77,10 @@ public:
             else if(r == -1 && prm[i]) r = i;
             else if(prm[i])
             {
-                r = l;
-                l = i;
+                l = r;
+                r = i;
             }
-            if(l != -1 & r != -1 && abs(l - r) <= dis)
+            if(l != -1 & r != -1 && abs(l - r) < dis)
             {
                 dis = abs(l - r);
                 ans[0] = l;
