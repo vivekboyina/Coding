@@ -42,22 +42,26 @@ Output: 0
 ## Solution
 
 **Language:** C++  
-**Runtime:** 0 ms  
-**Memory:** 7.9 MB  
-**Submitted:** 2026-08-12T06:11:18.205Z  
+**Runtime:** 0 ms (beats 100.00%)  
+**Memory:** 9.8 MB (beats 34.49%)  
+**Submitted:** 2026-08-12T06:46:04.749Z  
 
 ```cpp
 class Solution {
 public:
     int minSteps(int n) {
         if(n == 1) return 0;
-        int ans = 0;
+        int ans = n;
+        vector<int>dp(n + 1,INT_MAX);
         for(int i = 2; i <= n; i++)
         {
-            ans++;
-            if(n % i == 0 && i > 1  && i != n) return ans + n/i;
+            dp[i] = min(dp[i],i);
+            for(int j = i + i; j <= n; j+=i)
+            {
+                dp[j] = min(j,dp[i] + j/i);
+            }
         }
-        return ans;
+        return dp[n];
     }
 };
 ```
