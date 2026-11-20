@@ -20,6 +20,7 @@ public:
             k = n - 1;
             while(i < n && j < k)
             {
+                if(j > 0 && nums[j] == nums[j - 1]) j++;
                 vector<int>row;
                 if(j == i)
                 {
@@ -31,7 +32,7 @@ public:
                     k--;
                     continue;
                 }
-                else if(j == k)
+                else if(j < n && j == k)
                 {
                     j++;
                     continue;
