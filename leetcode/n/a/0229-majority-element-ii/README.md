@@ -50,7 +50,7 @@ Output: [1,2]
 **Language:** C++  
 **Runtime:** 0 ms  
 **Memory:** 8.2 MB  
-**Submitted:** 2026-11-19T01:19:35.588Z  
+**Submitted:** 2026-11-19T01:20:03.626Z  
 
 ```cpp
 // @lc code=start
@@ -84,6 +84,7 @@ public:
         vector<int>ans;
         if(c1 > n/3) ans.push_back(n1);
         if(c2 > n/3 && n1 != n2) ans.push_back(n2);
+        cout << c1 << " " << c2 << endl;
         return ans;
     }
 };
