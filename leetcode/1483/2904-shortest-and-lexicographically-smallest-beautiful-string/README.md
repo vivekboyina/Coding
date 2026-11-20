@@ -70,8 +70,8 @@ Explanation: There are no beautiful substrings in this example.
 
 **Language:** C++  
 **Runtime:** 0 ms  
-**Memory:** 7.8 MB  
-**Submitted:** 2026-08-26T12:08:00.431Z  
+**Memory:** 7.9 MB  
+**Submitted:** 2026-08-26T12:08:06.661Z  
 
 ```cpp
 class Solution {
