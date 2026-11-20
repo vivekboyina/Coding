@@ -69,9 +69,9 @@ Explanation: There are no beautiful substrings in this example.
 ## Solution
 
 **Language:** C++  
-**Runtime:** 0 ms  
-**Memory:** 7.9 MB  
-**Submitted:** 2026-08-26T12:08:06.661Z  
+**Runtime:** 4 ms (beats 19.14%)  
+**Memory:** 9 MB (beats 37.53%)  
+**Submitted:** 2026-08-26T12:14:34.094Z  
 
 ```cpp
 class Solution {
@@ -81,6 +81,7 @@ public:
         int cnt = 0;
         int l = 0;
         int n = s.length();
+        int len = n;
         for(int r = 0; r < n; r++)
         {
             if(s[r] == '1') cnt+=1;
@@ -89,9 +90,18 @@ public:
                 if(s[l] == '1') cnt-=1;
                 l++;
             }
-            if(cnt == k) ans = min(ans,s.substr(l,r - l + 1));
+            while(s[l] == '0') l++;
+            if(cnt == k)
+            {
+                if(r - l + 1 < len)
+                {
+                    ans = s.substr(l,r - l + 1);
+                    len = r - l + 1;
+                }
+                else if(r - l + 1 == len) ans = min(ans,s.substr(l,r - l + 1));
+            }
         }
-        if(ans == s) return "";
+        if(ans == s && cnt < k) return "";
         string ss = ans;
         for(char i : ss)
         {
