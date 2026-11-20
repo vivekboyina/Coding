@@ -1,25 +1,47 @@
 class Solution {
 public:
-    bool rec(int i,int j,int in,vector<vector<char>>& board,string& word)
+    map<pair<int,int>,int>mp;
+    bool ans = false;
+    void rec(int i,int j,int in,vector<vector<char>>& brd,string s)
     {
-        if(in==word.size()) return true;
-        if(i<0||i>=board.size()||j<0||j>=board[0].size()||board[i][j]!=word[in]) return false;
-        char temp=board[i][j];
-        board[i][j]='#';
-        bool found=rec(i-1,j,in+1,board,word)|| rec(i+1,j,in+1,board,word)|| rec(i,j-1,in+1,board,word)|| rec(i,j+1,in+1,board,word);
-        board[i][j]=temp;
-        return found;
+        if(in >= s.length())
+        {
+            ans = true;
+            return;
+        }
+        if(brd[i][j] == s[in] && in < s.length() - 1)
+        {
+            if(i - 1 >= 0 && mp.count({i - 1,j}) == 0 && brd[i - 1][j] == s[in + 1])
+            {
+                mp[{i - 1,j}]++;
+                rec(i - 1,j,in + 1,brd,s);
+            }
+            if(j - 1 >= 0 && mp.count({i,j - 1}) == 0 && brd[i][j - 1] == s[in + 1])
+            {
+                mp[{i,j - 1}]++;
+                rec(i,j - 1,in + 1,brd,s);
+            }
+            if(j + 1 < brd[0].size() && mp.count({i,j + 1}) == 0 && brd[i][j + 1] == s[in + 1])
+            {
+                mp[{i,j + 1}]++;
+                rec(i,j + 1,in + 1,brd,s);
+            }
+            if(i + 1 < brd.size() && mp.count({i + 1,j}) == 0 && brd[i + 1][j] == s[in + 1])
+            {
+                mp[{i + 1,j}]++;
+                rec(i + 1,j,in + 1,brd,s);
+            }
+        }
+        else if(in == s.length() - 1 && brd[i][j] == s[in])
+        {
+            ans = true;
+            return;
+        }
+        if(j + 1 < brd[0].size()) rec(i,j + 1,in,brd,s);
+        else if(i + 1 < brd.size()) rec(i + 1,0,in,brd,s);
     }
-    bool exist(vector<vector<char>>& board,string word)
-    {
-        int n=board.size(),m=board[0].size();
-        if(word.size()>n*m) return false;
-        int bc[256]={};
-        int wc[256]={};
-        for(auto& row:board) for(char c:row) bc[c]++;
-        for(char c:word) wc[c]++;
-        for(int i=0;i<256;i++) if(wc[i]>bc[i]) return false;
-        for(int i=0;i<n;i++) for(int j=0;j<m;j++) if(board[i][j]==word[0]&&rec(i,j,0,board,word)) return true;
-        return false;
+    bool exist(vector<vector<char>>& board, string word) {
+        rec(0,0,0,board,word);
+        return ans;
     }
 };
