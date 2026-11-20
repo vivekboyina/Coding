@@ -51,9 +51,9 @@ Output: false
 ## Solution
 
 **Language:** C++  
-**Runtime:** 31 ms (beats 97.61%)  
-**Memory:** 11 MB (beats 45.03%)  
-**Submitted:** 2026-08-15T11:49:05.508Z  
+**Runtime:** 30 ms (beats 97.64%)  
+**Memory:** 10.9 MB (beats 45.03%)  
+**Submitted:** 2026-08-15T11:46:58.957Z  
 
 ```cpp
 class Solution {
@@ -64,7 +64,10 @@ public:
         if(i<0||i>=board.size()||j<0||j>=board[0].size()||board[i][j]!=word[in]) return false;
         char temp=board[i][j];
         board[i][j]='#';
-        bool found=rec(i-1,j,in+1,board,word)|| rec(i+1,j,in+1,board,word)|| rec(i,j-1,in+1,board,word)|| rec(i,j+1,in+1,board,word);
+        bool found=rec(i-1,j,in+1,board,word)||
+                   rec(i+1,j,in+1,board,word)||
+                   rec(i,j-1,in+1,board,word)||
+                   rec(i,j+1,in+1,board,word);
         board[i][j]=temp;
         return found;
     }
@@ -74,10 +77,17 @@ public:
         if(word.size()>n*m) return false;
         int bc[256]={};
         int wc[256]={};
-        for(auto& row:board) for(char c:row) bc[c]++;
-        for(char c:word) wc[c]++;
-        for(int i=0;i<256;i++) if(wc[i]>bc[i]) return false;
-        for(int i=0;i<n;i++) for(int j=0;j<m;j++) if(board[i][j]==word[0]&&rec(i,j,0,board,word)) return true;
+        for(auto& row:board)
+            for(char c:row)
+                bc[c]++;
+        for(char c:word)
+            wc[c]++;
+        for(int i=0;i<256;i++)
+            if(wc[i]>bc[i]) return false;
+        for(int i=0;i<n;i++)
+            for(int j=0;j<m;j++)
+                if(board[i][j]==word[0]&&rec(i,j,0,board,word))
+                    return true;
         return false;
     }
 };
