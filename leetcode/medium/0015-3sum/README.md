@@ -52,9 +52,9 @@ Explanation: The only possible triplet sums up to 0.
 ## Solution
 
 **Language:** C++  
-**Runtime:** 1109 ms  
-**Memory:** 241.3 MB  
-**Submitted:** 2026-11-20T01:20:47.842Z  
+**Runtime:** 3037 ms (beats 5.01%)  
+**Memory:** 580.7 MB (beats 5.20%)  
+**Submitted:** 2026-11-20T01:22:53.844Z  
 
 ```cpp
 /*
@@ -79,6 +79,7 @@ public:
             k = n - 1;
             while(i < n && j < k)
             {
+                if(j > 0 && nums[j] == nums[j - 1]) j++;
                 vector<int>row;
                 if(j == i)
                 {
@@ -90,7 +91,7 @@ public:
                     k--;
                     continue;
                 }
-                else if(j == k)
+                else if(j < n && j == k)
                 {
                     j++;
                     continue;
