@@ -14,6 +14,8 @@ You may return the answer in  **any order**.
 
  
 
+Original
+C++
  **Example 1:** 
 
 ```
@@ -41,46 +43,55 @@ Output: [[2,2,2,2]]
 ## Solution
 
 **Language:** C++  
-**Runtime:** 19 ms (beats 81.17%)  
-**Memory:** 17.4 MB (beats 87.47%)  
-**Submitted:** 2026-09-26T00:57:27.225Z  
+**Runtime:** 0 ms  
+**Memory:** 8.4 MB  
+**Submitted:** 2026-11-21T02:18:36.075Z  
 
 ```cpp
+/*
+ * @lc app=leetcode id=18 lang=cpp
+ *
+ * [18] 4Sum
+ */
+
+// @lc code=start
 class Solution {
 public:
-    vector<vector<int>> fourSum(vector<int>& nums, int t) {
-        sort(nums.begin(),nums.end());
+    vector<vector<int>> fourSum(vector<int>& nums, int target) {
         vector<vector<int>>ans;
+        sort(nums.begin(),nums.end());
         int n = nums.size();
-        if(n < 4) return ans;
-        int l,r;
-        for(int i = 0; i < n - 3; i++)
+        for(int i = 0; i < n; i++)
         {
-            if(i > 0 && nums[i] == nums[i - 1]) continue;
-            for(int j = i + 1; j < n - 2; j++)
+            if(i > 0 && nums[i] == nums[i - 1]) i++;
+            for(int j = i + 1; j < n; j++)
             {
-                if(j > i + 1 && nums[j] == nums[j - 1]) continue;
-                l = j + 1;
-                r = n - 1;
-                while(l < r)
+                if(j > i + 1 && nums[j] == nums[j - 1]) j++;
+                int k = j + 1;
+                int l = n - 1;
+                while(k < l)
                 {
-                    long long sum = (long long)nums[l] + nums[r] + nums[i] + nums[j];
-                    if(sum > t) r--;
-                    else if(sum < t) l++;
-                    else
+                    int sum = nums[i] + nums[j] + nums[k] + nums[l];
+                    if(sum == target)
                     {
-                        ans.push_back({nums[i],nums[j],nums[l],nums[r]});
-                        l++;
-                        r--;
-                        while(l < r && nums[l] == nums[l - 1]) l++;
-                        while(l < r && nums[r] == nums[r + 1]) r--;
+                        cout << i << " " << j << " " << k << " " << l << endl;
+                        ans.push_back({nums[i],nums[j],nums[k],nums[l]});
+                        l--;
+                        k++;
+                        while(k < l && nums[k] == nums[k - 1]) k++;
+                        while(l > k && nums[l] == nums[l + 1]) l--;
                     }
+                    else if(sum > target) l--;
+                    else if(sum < target) k++;
                 }
             }
         }
         return ans;
     }
 };
+// @lc code=end
+
+
 ```
 
 ---
