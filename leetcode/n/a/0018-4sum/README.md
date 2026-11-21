@@ -43,9 +43,9 @@ Output: [[2,2,2,2]]
 ## Solution
 
 **Language:** C++  
-**Runtime:** 23 ms (beats 50.11%)  
-**Memory:** 17.5 MB (beats 42.91%)  
-**Submitted:** 2026-11-21T02:24:28.952Z  
+**Runtime:** 26 ms (beats 20.79%)  
+**Memory:** 17.2 MB (beats 89.28%)  
+**Submitted:** 2026-11-21T02:25:59.470Z  
 
 ```cpp
 /*
@@ -63,10 +63,10 @@ public:
         int n = nums.size();
         for(int i = 0; i < n; i++)
         {
-            while(i > 0 && i < n && nums[i] == nums[i - 1]) i++;
+            if(i > 0 && nums[i] == nums[i - 1]) continue;
             for(int j = i + 1; j < n; j++)
             {
-                while(j > i + 1 && j < n && nums[j] == nums[j - 1]) j++;
+                if(j > i + 1 && nums[j] == nums[j - 1]) continue;
                 int k = j + 1;
                 int l = n - 1;
                 while(k < l)
