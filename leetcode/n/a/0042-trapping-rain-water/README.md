@@ -8,6 +8,8 @@ Given `n` non-negative integers representing an elevation map where the width of
 
  
 
+Original
+C++
  **Example 1:** 
 
 ```
@@ -37,8 +39,8 @@ Output: 9
 
 **Language:** C++  
 **Runtime:** 0 ms (beats 100.00%)  
-**Memory:** 26 MB (beats 78.56%)  
-**Submitted:** 2026-07-12T11:24:09.825Z  
+**Memory:** 26 MB (beats 73.92%)  
+**Submitted:** 2026-11-22T05:05:22.774Z  
 
 ```cpp
 class Solution {
