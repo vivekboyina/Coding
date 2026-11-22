@@ -16,7 +16,7 @@ public:
         int sum;
         for(int i = 0; i < n; i++)
         {
-            if(i > 0 && nums[i] == nums[i - 1]) i++;
+            if(i > 0 && nums[i] == nums[i - 1]) continue;
             j = i + 1;
             k = n - 1;
             while(i < n && j < k)
@@ -40,7 +40,7 @@ public:
                 sum = nums[i] + nums[j] + nums[k];
                 if(sum == 0)
                 {
-                    cout << i << " " << j << " " << k << endl;
+                    // cout << i << " " << j << " " << k << endl;
                     row.push_back(nums[i]);
                     row.push_back(nums[j]);
                     row.push_back(nums[k]);
