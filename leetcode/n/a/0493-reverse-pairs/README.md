@@ -48,9 +48,9 @@ Explanation: The reverse pairs are:
 ## Solution
 
 **Language:** C++  
-**Runtime:** 0 ms  
-**Memory:** 8.5 MB  
-**Submitted:** 2026-11-22T08:06:13.480Z  
+**Runtime:** 365 ms (beats 75.99%)  
+**Memory:** 146.9 MB (beats 77.03%)  
+**Submitted:** 2026-11-22T08:06:21.084Z  
 
 ```cpp
 /*
