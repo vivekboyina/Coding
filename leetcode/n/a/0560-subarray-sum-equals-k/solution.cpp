@@ -9,17 +9,9 @@ public:
         unordered_map<int,int>mp;
         for(int i = 0; i < n; i++)
         {
-            if(pf[i] == k)
-            {
-                // cout << "EE" << endl;
-                ans++;
-            }
-            if(mp.find(pf[i] - k) != mp.end())
-            {
-                // cout << "ENTERED" << endl;
-                ans++;
-            }
-            mp[pf[i]] = i;
+            if(pf[i] == k) ans++;
+            if(mp.find(pf[i] - k) != mp.end()) ans = ans + mp[pf[i] - k];
+            mp[pf[i]]++;
         }
         return ans;
     }
