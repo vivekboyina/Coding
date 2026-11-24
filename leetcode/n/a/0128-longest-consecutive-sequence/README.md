@@ -47,9 +47,9 @@ Output: 3
 ## Solution
 
 **Language:** C++  
-**Runtime:** 68 ms (beats 81.68%)  
-**Memory:** 65.4 MB (beats 81.58%)  
-**Submitted:** 2026-11-24T01:27:47.020Z  
+**Runtime:** 85 ms (beats 63.61%)  
+**Memory:** 88.9 MB (beats 46.09%)  
+**Submitted:** 2026-11-24T01:51:19.492Z  
 
 ```cpp
 /*
@@ -63,18 +63,24 @@ class Solution {
 public:
     int longestConsecutive(vector<int>& nums) {
         if(nums.size() == 0) return 0;
-        priority_queue<int>pq;
-        for(int i : nums) pq.push(i);
+        unordered_set<int>st;
+        for(int i : nums) st.insert(i);
         int ans = 0;
         int cnt = 1;
-        int tp = pq.top();
-        while(!pq.empty())
+        int cur;
+        for(int i : st)
         {
-            if(abs(tp - pq.top()) == 1) cnt++;
-            else if(abs(tp - pq.top()) > 1) cnt = 1;
-            tp = pq.top();
-            pq.pop();
-            ans = max(ans,cnt);
+            if(st.find(i - 1) == st.end())
+            {
+                cnt = 1;
+                cur = i;
+                while(st.find(cur + 1) != st.end())
+                {
+                    cnt++;
+                    cur++;
+                }
+                ans = max(ans,cnt);
+            }
         }
         return ans;
     }
