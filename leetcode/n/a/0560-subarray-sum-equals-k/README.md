@@ -39,9 +39,9 @@ Output: 2
 ## Solution
 
 **Language:** C++  
-**Runtime:** 0 ms  
-**Memory:** 8.4 MB  
-**Submitted:** 2026-11-24T02:11:12.682Z  
+**Runtime:** 41 ms (beats 72.71%)  
+**Memory:** 46.6 MB (beats 33.76%)  
+**Submitted:** 2026-11-24T02:17:25.442Z  
 
 ```cpp
 class Solution {
@@ -55,17 +55,9 @@ public:
         unordered_map<int,int>mp;
         for(int i = 0; i < n; i++)
         {
-            if(pf[i] == k)
-            {
-                // cout << "EE" << endl;
-                ans++;
-            }
-            if(mp.find(pf[i] - k) != mp.end())
-            {
-                // cout << "ENTERED" << endl;
-                ans++;
-            }
-            mp[pf[i]] = i;
+            if(pf[i] == k) ans++;
+            if(mp.find(pf[i] - k) != mp.end()) ans = ans + mp[pf[i] - k];
+            mp[pf[i]]++;
         }
         return ans;
     }
