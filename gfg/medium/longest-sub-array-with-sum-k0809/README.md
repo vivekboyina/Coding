@@ -31,22 +31,24 @@ Explanation: No subarray with sum = 5 is present in arr[].
 **Language:** C++  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-13T12:58:13.193Z  
+**Submitted:** 2026-11-24T10:54:16.377Z  
 
 ```cpp
 class Solution {
   public:
     int longestSubarray(vector<int>& arr, int k) {
-        unordered_map<int,int>mp;
-        int sum = 0;
+        // code here
         int ans = 0;
         int n = arr.size();
+        vector<int>pf(n);
+        pf[0] = arr[0];
+        for(int i = 1; i < n; i++) pf[i] = pf[i - 1] + arr[i];
+        unordered_map<int,int>mp;
         for(int i = 0; i < n; i++)
         {
-            sum+=arr[i];
-            if(sum == k) ans = i + 1;
-            if(mp.find(sum - k) != mp.end()) ans = max(ans,i - mp[sum - k]);
-            if(mp.find(sum) == mp.end()) mp[sum] = i;
+            if(pf[i] == k) ans = max(ans,i + 1);
+            else if(mp.find(pf[i] - k) != mp.end()) ans = max(ans,(i - mp[pf[i] - k]));
+            if(mp.find(pf[i]) == mp.end()) mp[pf[i]] = i;
         }
         return ans;
     }
