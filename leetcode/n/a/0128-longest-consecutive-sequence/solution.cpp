@@ -9,18 +9,24 @@ class Solution {
 public:
     int longestConsecutive(vector<int>& nums) {
         if(nums.size() == 0) return 0;
-        priority_queue<int>pq;
-        for(int i : nums) pq.push(i);
+        unordered_set<int>st;
+        for(int i : nums) st.insert(i);
         int ans = 0;
         int cnt = 1;
-        int tp = pq.top();
-        while(!pq.empty())
+        int cur;
+        for(int i : st)
         {
-            if(abs(tp - pq.top()) == 1) cnt++;
-            else if(abs(tp - pq.top()) > 1) cnt = 1;
-            tp = pq.top();
-            pq.pop();
-            ans = max(ans,cnt);
+            if(st.find(i - 1) == st.end())
+            {
+                cnt = 1;
+                cur = i;
+                while(st.find(cur + 1) != st.end())
+                {
+                    cnt++;
+                    cur++;
+                }
+                ans = max(ans,cnt);
+            }
         }
         return ans;
     }
