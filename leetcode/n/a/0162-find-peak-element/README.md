@@ -14,6 +14,8 @@ You must write an algorithm that runs in `O(log n)` time.
 
  
 
+Original
+C++
  **Example 1:** 
 
 ```
@@ -42,26 +44,25 @@ Explanation: Your function can return either index number 1 where the peak eleme
 
 **Language:** C++  
 **Runtime:** 0 ms (beats 100.00%)  
-**Memory:** 12.6 MB (beats 40.98%)  
-**Submitted:** 2026-07-28T09:27:15.646Z  
+**Memory:** 12.5 MB (beats 85.19%)  
+**Submitted:** 2026-11-25T01:47:22.851Z  
 
 ```cpp
 class Solution {
 public:
     int findPeakElement(vector<int>& nums) {
         int n = nums.size();
-        if(n == 1) return 0;
-        if(nums[1] < nums[0]) return 0;
-        if(nums[n - 2] < nums[n - 1]) return n - 1;
-        int low = 1;
-        int high = n - 2;
-        int mid;
-        while(low <= high)
+        int l = 0;
+        int h = n - 1;
+        int m;
+        while(l <= h)
         {
-            mid = low + (high - low)/2;
-            if(nums[mid] > nums[mid - 1] && nums[mid] > nums[mid + 1]) return mid;
-            else if(nums[mid - 1] > nums[mid]) high = mid - 1;
-            else low = mid + 1;
+            m = l + (h - l)/2;
+            bool lft = m > 0 ? nums[m] > nums[m - 1] ? true : false : true;
+            bool rht = m < n - 1 ? nums[m] > nums[m + 1] ? true : false : true;
+            if(lft && rht) return m;
+            else if(lft && !rht) l = m + 1;
+            else h = m - 1;
         }
         return -1;
     }
