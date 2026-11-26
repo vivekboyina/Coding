@@ -48,9 +48,9 @@ Output: false
 ## Solution
 
 **Language:** C++  
-**Runtime:** 0 ms  
-**Memory:** 8.2 MB  
-**Submitted:** 2026-11-26T01:40:48.784Z  
+**Runtime:** 0 ms (beats 100.00%)  
+**Memory:** 18 MB (beats 23.88%)  
+**Submitted:** 2026-11-26T06:26:10.876Z  
 
 ```cpp
 class Solution {
@@ -60,21 +60,19 @@ public:
         int l = 0;
         int h = n - 1;
         int m;
-        while(l < h)
+        while(l <= h)
         {
             m = l + (h - l)/2;
-            cout << nums[m] << endl;
             if(nums[m] == target) return true;
-            else if(nums[m] > target)
+            else if(nums[m] == nums[l] && nums[m] == nums[h])
             {
-                if(l > target) l = m;
-                else h = m;
+                l+=1;
+                h-=1;
             }
-            else
-            {
-                if(l > target) l = m;
-                else h = m;
-            }
+            else if(nums[m] < nums[l] && nums[l] <= target) h = m - 1;
+            else if(nums[m] > nums[h] && nums[h] >= target) l = m + 1;
+            else if(nums[m] > target) h = m - 1;
+            else if(nums[m] < target) l = m + 1;
         }
         return false;
     }
