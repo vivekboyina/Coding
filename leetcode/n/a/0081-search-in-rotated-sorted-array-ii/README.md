@@ -49,8 +49,8 @@ Output: false
 
 **Language:** C++  
 **Runtime:** 0 ms  
-**Memory:** 8.1 MB  
-**Submitted:** 2026-11-26T01:40:41.984Z  
+**Memory:** 8.2 MB  
+**Submitted:** 2026-11-26T01:40:48.784Z  
 
 ```cpp
 class Solution {
