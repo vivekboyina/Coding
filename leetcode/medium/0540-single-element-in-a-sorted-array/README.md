@@ -40,7 +40,7 @@ Output: 10
 **Language:** C++  
 **Runtime:** 0 ms  
 **Memory:** 8.2 MB  
-**Submitted:** 2026-11-26T08:45:48.123Z  
+**Submitted:** 2026-11-26T08:45:57.899Z  
 
 ```cpp
 class Solution {
