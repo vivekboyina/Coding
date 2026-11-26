@@ -25,7 +25,6 @@ public:
                 else l = m + 1;
             }
         }
-        cout << l << endl;
-        return nums[l];
+        return l < n ? nums[l] : nums[h];
     }
 };
