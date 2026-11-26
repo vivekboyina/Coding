@@ -11,6 +11,8 @@ Write an efficient algorithm that searches for a value `target` in an `m x n` in
 
  
 
+Original
+C++
  **Example 1:** 
 
 ```
@@ -42,34 +44,28 @@ Output: false
 ## Solution
 
 **Language:** C++  
-**Runtime:** 57 ms (beats 37.46%)  
-**Memory:** 18.8 MB (beats 39.36%)  
-**Submitted:** 2026-07-28T13:00:52.287Z  
+**Runtime:** 62 ms (beats 21.33%)  
+**Memory:** 18.5 MB (beats 81.42%)  
+**Submitted:** 2026-11-26T08:59:01.702Z  
 
 ```cpp
 class Solution {
 public:
-    bool searchMatrix(vector<vector<int>>& mtrx, int tgt) {
-        int m = mtrx.size();
-        int n = mtrx[0].size();
-        int low;
-        int high;
-        int mid;
-        for(int i = 0; i < m; i++)
+    bool searchMatrix(vector<vector<int>>& matrix, int target) {
+        int n = matrix.size();
+        int m = matrix[0].size();
+        for(int i = 0; i < n; i++)
         {
-            if(mtrx[i][0] > tgt) return false;
-            if(mtrx[i][n - 1] < tgt) continue;
-            if(mtrx[i][n - 1] >= tgt && mtrx[i][0] <= tgt)
+            if(matrix[i][m - 1] < target) continue;
+            else if(matrix[i][0] > target) break;
+            int l = 0;
+            int r = m - 1;
+            while(l <= r)
             {
-                low = 0;
-                high = n - 1;
-                while(low <= high)
-                {
-                    mid = low + (high - low)/2;
-                    if(mtrx[i][mid] == tgt) return true;
-                    else if(mtrx[i][mid] > tgt) high = mid - 1;
-                    else low = mid + 1;
-                }
+                int h = l + (r - l)/2;
+                if(matrix[i][h] == target) return true;
+                else if(matrix[i][h] > target) r = h - 1;
+                else l = h + 1;
             }
         }
         return false;
