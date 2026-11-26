@@ -38,9 +38,9 @@ Output: 10
 ## Solution
 
 **Language:** C++  
-**Runtime:** 0 ms  
-**Memory:** 8.2 MB  
-**Submitted:** 2026-11-26T08:45:57.899Z  
+**Runtime:** 0 ms (beats 100.00%)  
+**Memory:** 26.3 MB (beats 9.60%)  
+**Submitted:** 2026-11-26T08:47:09.294Z  
 
 ```cpp
 class Solution {
@@ -70,8 +70,7 @@ public:
                 else l = m + 1;
             }
         }
-        cout << l << endl;
-        return nums[l];
+        return l < n ? nums[l] : nums[h];
     }
 };
 ```
