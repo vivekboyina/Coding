@@ -5,6 +5,7 @@ public:
         int h = INT_MIN;
         for(int i : piles) h = max(i,h);
         int m;
+        int n = piles.size();
         while(l < h)
         {
             m = l + (h - l)/2;
