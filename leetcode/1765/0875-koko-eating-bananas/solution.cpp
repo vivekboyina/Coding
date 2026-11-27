@@ -1,24 +1,19 @@
-#define ll long long
 class Solution {
 public:
-    int minEatingSpeed(vector<int>& piles, int h) {
-        ll low = 1;
-        ll high = INT_MIN;
-        for(ll i : piles) high = max(high,i);
-        ll mid;
-        ll cnt = 0;
-        while(low <= high)
+    int minEatingSpeed(vector<int>& piles, int hr) {
+        int l = 1;
+        int h = INT_MIN;
+        for(int i : piles) h = max(i,h);
+        int m;
+        int n = piles.size();
+        while(l < h)
         {
-            mid = low + (high - low)/2;
-            cnt = 0;
-            for(ll i : piles)
-            {
-                if(i % mid == 0) cnt+=(i/mid);
-                else cnt+=((i/mid) + 1);
-            }
-            if(cnt > h) low = mid + 1;
-            else high = mid - 1;
+            m = l + (h - l)/2;
+            int cnt = 0;
+            for(int i : piles) cnt += (i % m == 0) ? i/m : (i + m)/m;
+            if(cnt > hr) l = m + 1;
+            else h = m;
         }
-        return low;
+        return h;
     }
 };
