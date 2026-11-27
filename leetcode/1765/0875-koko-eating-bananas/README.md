@@ -10,33 +10,41 @@ Koko can decide her bananas-per-hour eating speed of `k`. Each hour, she chooses
 
 Koko likes to eat slowly but still wants to finish eating all the bananas before the guards return.
 
-Return  *the minimum integer*  `k`  *such that she can eat all the bananas within*  `h`  *hours*.
+Return the  **minimum**  integer `k` such that she can eat all the bananas  **within**  `h` hours.
 
  
 
+Original
+C++
  **Example 1:** 
 
-```
-Input: piles = [3,6,7,11], h = 8
-Output: 4
+ **Input:**  piles = [3,6,7,11], h = 8
 
-```
+ **Output:**  4
+
+ **Explanation:** 
+
+At a speed of 4 bananas per hour, Koko takes 1, 2, 2, and 3 hours to finish the respective piles, totaling 8 hours.
 
  **Example 2:** 
 
-```
-Input: piles = [30,11,23,4,20], h = 5
-Output: 30
+ **Input:**  piles = [30,11,23,4,20], h = 5
 
-```
+ **Output:**  30
+
+ **Explanation:** 
+
+Koko must finish each pile in exactly 1 hour, so her minimum eating speed must be 30 bananas per hour.
 
  **Example 3:** 
 
-```
-Input: piles = [30,11,23,4,20], h = 6
-Output: 23
+ **Input:**  piles = [30,11,23,4,20], h = 6
 
-```
+ **Output:**  23
+
+ **Explanation:** 
+
+At a speed of 23 bananas per hour, Koko takes 2 hours for the first pile and 1 hour for each remaining pile, totaling 6 hours.
 
  
 
@@ -49,33 +57,28 @@ Output: 23
 ## Solution
 
 **Language:** C++  
-**Runtime:** 12 ms (beats 26.39%)  
-**Memory:** 23 MB (beats 17.25%)  
-**Submitted:** 2026-07-25T03:02:45.371Z  
+**Runtime:** 0 ms  
+**Memory:** 8.4 MB  
+**Submitted:** 2026-11-27T10:13:04.973Z  
 
 ```cpp
-#define ll long long
 class Solution {
 public:
-    int minEatingSpeed(vector<int>& piles, int h) {
-        ll low = 1;
-        ll high = INT_MIN;
-        for(ll i : piles) high = max(high,i);
-        ll mid;
-        ll cnt = 0;
-        while(low <= high)
+    int minEatingSpeed(vector<int>& piles, int hr) {
+        int l = 1;
+        int h = INT_MIN;
+        for(int i : piles) h = max(i,h);
+        int m;
+        int n = piles.size();
+        while(l < h)
         {
-            mid = low + (high - low)/2;
-            cnt = 0;
-            for(ll i : piles)
-            {
-                if(i % mid == 0) cnt+=(i/mid);
-                else cnt+=((i/mid) + 1);
-            }
-            if(cnt > h) low = mid + 1;
-            else high = mid - 1;
+            m = l + (h - l)/2;
+            int cnt = 0;
+            for(int i : piles) cnt += (i % m == 0) ? i/m : (i + m)/m;
+            if(cnt > hr) l = m + 1;
+            else h = m;
         }
-        return low;
+        return h;
     }
 };
 ```
